@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjd5yc4r2umcv"]
+
+[ext_resource type="PackedScene" uid="uid://c8vkxrhkn1x14" path="res://Scenes/player.tscn" id="1_xua07"]
+[ext_resource type="PackedScene" uid="uid://5i8nwlo5ax30" path="res://temp/shader_scene/canvas_layer.tscn" id="2_c7dlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(1359, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xua07"]
+size = Vector2(109, 20)
+
+[node name="TestScene" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_xua07")]
+position = Vector2(323, 53)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(475.5, 153)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(488.5, 102)
+shape = SubResource("RectangleShape2D_xua07")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_c7dlu")]
+visible = false

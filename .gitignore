@@ -1,0 +1,29 @@
+# Godot 4 generated files
+.godot/
+
+# Godot 3 generated files, kept here for compatibility
+.import/
+
+# C# / Mono generated files
+.mono/
+
+# Exported builds
+build/
+builds/
+export/
+exports/
+*.pck
+
+# Logs and temporary files
+*.log
+*.tmp
+*~
+
+# IDE settings
+.vscode/
+.idea/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
