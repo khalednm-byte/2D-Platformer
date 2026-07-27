@@ -2,8 +2,9 @@ extends Node
 class_name HealthComponent
 
 signal health_changed(current_health: float, max_health: float)
-signal shield_changed(current_shield: float, max_shield: float)
 signal died
+signal shield_changed(current_shield: float, max_shield: float)
+signal shield_broken
 
 @export_range(0.0, 1000.0) var max_health: float = 100.0
 @export_range(0.0, 1000.0) var max_shield: float = 0.0
@@ -32,8 +33,12 @@ func damage(damage_taken: AttackInfo) -> void:
 		current_shield -= absorbed_damage
 		remaining_damage -= absorbed_damage
 		
-		shield_changed.emit(current_shield, max_shield)
-		
+		if current_shield == 0.0:
+			shield_broken.emit()
+		else:
+			shield_changed.emit(current_shield, max_shield)
+	
+	
 	if remaining_damage > 0.0:
 		current_health = maxf(current_health - remaining_damage, 0.0)
 		health_changed.emit(current_health, max_health)

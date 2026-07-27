@@ -27,4 +27,3 @@ position = Vector2(488.5, 102)
 shape = SubResource("RectangleShape2D_xua07")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_c7dlu")]
-visible = false
