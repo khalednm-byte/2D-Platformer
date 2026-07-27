@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://c8vkxrhkn1x14"]
+[gd_scene format=3 uid="uid://c8vkxrhkn1x14"]
 
 [ext_resource type="Script" uid="uid://w24fik0gh3mi" path="res://Scripts/Coordinators/player.gd" id="1_xuaoq"]
 [ext_resource type="Texture2D" uid="uid://c4m8v58fyy6rp" path="res://Assets/120x80_PNGSheets/_Attack.png" id="1_ypfnu"]
@@ -39,6 +39,7 @@
 [ext_resource type="Script" uid="uid://dwgwfnad2qx3g" path="res://Scripts/Components/CombatComponent.gd" id="37_11gg7"]
 [ext_resource type="Script" uid="uid://tq3lioir71b6" path="res://Scripts/Recources/AttackData.gd" id="38_qpa8y"]
 [ext_resource type="Script" uid="uid://d3hfg1k3sojj1" path="res://Scripts/Components/HitBoxComponent.gd" id="39_sbwqj"]
+[ext_resource type="Script" uid="uid://c2u4h2l6w5g8x" path="res://Scripts/Components/HurtBoxComponent.gd" id="40_xwi16"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clpr6"]
 height = 36.0
@@ -652,7 +653,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_usbl8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 13.0
 }, {
@@ -675,7 +676,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sscpr")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack2",
 "speed": 13.0
 }, {
@@ -698,7 +699,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_feq18")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack2NoMovement",
 "speed": 11.0
 }, {
@@ -733,7 +734,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5cld6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackCombo2Hit",
 "speed": 13.0
 }, {
@@ -768,7 +769,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mpfyg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackComboNoMovement",
 "speed": 10.0
 }, {
@@ -785,7 +786,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ramv3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackNoMovement",
 "speed": 10.0
 }, {
@@ -802,7 +803,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v84ne")
 }],
-"loop": false,
+"loop": 0,
 "name": &"CrouchAttack",
 "speed": 9.0
 }, {
@@ -816,7 +817,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pgf6i")
 }],
-"loop": true,
+"loop": 1,
 "name": &"CrouchIdle",
 "speed": 1.0
 }, {
@@ -827,7 +828,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_8gxox")
 }],
-"loop": false,
+"loop": 0,
 "name": &"CrouchIn",
 "speed": 8.0
 }, {
@@ -838,7 +839,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bvt37")
 }],
-"loop": false,
+"loop": 0,
 "name": &"CrouchOut",
 "speed": 8.0
 }, {
@@ -867,7 +868,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v8gx6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"CrouchWalk",
 "speed": 8.0
 }, {
@@ -878,7 +879,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fip0x")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 7.0
 }, {
@@ -913,7 +914,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jr4hp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Death",
 "speed": 8.0
 }, {
@@ -948,7 +949,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uh6ff")
 }],
-"loop": false,
+"loop": 0,
 "name": &"DeathNoMovement",
 "speed": 8.0
 }, {
@@ -962,7 +963,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cq7w1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Fall",
 "speed": 8.0
 }, {
@@ -970,7 +971,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ho16k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Hit",
 "speed": 1.0
 }, {
@@ -1005,7 +1006,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a1mwt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 10.0
 }, {
@@ -1019,7 +1020,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n2sjk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 7.0
 }, {
@@ -1030,7 +1031,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3e4cc")
 }],
-"loop": false,
+"loop": 0,
 "name": &"JumpFallInbetween",
 "speed": 5.0
 }, {
@@ -1071,7 +1072,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nyd3j")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Roll",
 "speed": 14.0
 }, {
@@ -1106,7 +1107,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gbwas")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run",
 "speed": 15.0
 }, {
@@ -1117,7 +1118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_151ft")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slide",
 "speed": 6.0
 }, {
@@ -1131,7 +1132,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8k4al")
 }],
-"loop": false,
+"loop": 0,
 "name": &"SlideIn",
 "speed": 6.0
 }, {
@@ -1145,7 +1146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5e4ga")
 }],
-"loop": false,
+"loop": 0,
 "name": &"SlideOut",
 "speed": 6.0
 }, {
@@ -1159,7 +1160,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eycad")
 }],
-"loop": false,
+"loop": 0,
 "name": &"TurnAround",
 "speed": 8.0
 }, {
@@ -1185,7 +1186,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6kbb5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"WallClimb",
 "speed": 5.0
 }, {
@@ -1211,7 +1212,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5xxh7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"WallClimbNoMovement",
 "speed": 5.0
 }, {
@@ -1219,7 +1220,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5un75")
 }],
-"loop": false,
+"loop": 0,
 "name": &"WallHang",
 "speed": 1.0
 }, {
@@ -1233,7 +1234,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tgi02")
 }],
-"loop": true,
+"loop": 1,
 "name": &"WallSlide",
 "speed": 8.0
 }]
@@ -1242,18 +1243,21 @@ animations = [{
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack"
 active_windows = Array[Vector2i]([Vector2i(1, 2)])
+movement_multiplier = 0.5
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
 [sub_resource type="Resource" id="Resource_xwi16"]
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack2"
 active_windows = Array[Vector2i]([Vector2i(2, 3)])
+movement_multiplier = 0.5
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
 [sub_resource type="Resource" id="Resource_qpa8y"]
 script = ExtResource("38_qpa8y")
 animation_name = &"AttackCombo2Hit"
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_multiplier = 0.5
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
 [sub_resource type="Resource" id="Resource_sweqm"]
@@ -1277,75 +1281,115 @@ active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_multiplier = 0.0
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component")]
+[sub_resource type="Resource" id="Resource_c7dlu"]
+script = ExtResource("38_qpa8y")
+animation_name = &"CrouchAttack"
+knockback_force = 50.0
+active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_multiplier = 0.25
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwi16"]
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqm"]
+radius = 11.0
+height = 28.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=604404683 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component")]
 script = ExtResource("1_xuaoq")
 input_source = NodePath("InputSource")
 movement_component = NodePath("MovementComponent")
 animation_component = NodePath("AnimationComponent")
 combat_component = NodePath("CombatComponent")
+hurtbox_component = NodePath("HurtBoxComponent")
 jump_buffer_duration = 0.2
-coyote_time_duration = null
-moving_attack_threshold = null
 
-[node name="StandingCollision" type="CollisionShape2D" parent="."]
+[node name="StandingCollision" type="CollisionShape2D" parent="." unique_id=1113752472]
 visible = false
 position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_clpr6")
 
-[node name="LowCollision" type="CollisionPolygon2D" parent="."]
+[node name="LowCollision" type="CollisionPolygon2D" parent="." unique_id=2035048171]
 position = Vector2(-1, 0)
 polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
 disabled = true
 
-[node name="CrouchCollision" type="CollisionShape2D" parent="."]
+[node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=1153845567]
 visible = false
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_ypfnu")
 disabled = true
 
-[node name="HeadClearanceCheck" type="ShapeCast2D" parent="."]
+[node name="HeadClearanceCheck" type="ShapeCast2D" parent="." unique_id=1253466748]
 position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_ypfnu")
 target_position = Vector2(0, -11)
 collision_mask = 267
 
-[node name="MovementComponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
+[node name="MovementComponent" type="Node2D" parent="." unique_id=1098609762 node_paths=PackedStringArray("body")]
 script = ExtResource("32_wohnl")
 body = NodePath("..")
 
-[node name="HealthComponent" type="Node2D" parent="."]
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1079372913]
 script = ExtResource("33_nv4vc")
 
-[node name="AnimationComponent" type="Node2D" parent="." node_paths=PackedStringArray("animated_sprite", "visual_pivot")]
+[node name="AnimationComponent" type="Node2D" parent="." unique_id=1946625830 node_paths=PackedStringArray("animated_sprite", "visual_pivot")]
 script = ExtResource("34_8gxox")
 animation_set = SubResource("Resource_11gg7")
 animated_sprite = NodePath("../VisualPivot2D/AnimatedSprite2D")
 visual_pivot = NodePath("../VisualPivot2D")
 
-[node name="InputSource" type="Node2D" parent="."]
+[node name="InputSource" type="Node2D" parent="." unique_id=887060813]
 script = ExtResource("35_11gg7")
 
-[node name="VisualPivot2D" type="Node2D" parent="."]
+[node name="VisualPivot2D" type="Node2D" parent="." unique_id=841170139]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1534660958]
 position = Vector2(5, -40)
 sprite_frames = SubResource("SpriteFrames_350sb")
-animation = &"Attack2NoMovement"
+animation = &"CrouchAttack"
+frame = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1167977920]
 zoom = Vector2(3, 3)
 
-[node name="CombatComponent" type="Node2D" parent="." node_paths=PackedStringArray("animation_component", "hitbox_component")]
+[node name="CombatComponent" type="Node2D" parent="." unique_id=926367403 node_paths=PackedStringArray("animation_component", "hitbox_component")]
 script = ExtResource("37_11gg7")
 animation_component = NodePath("../AnimationComponent")
 hitbox_component = NodePath("../HitBoxComponent")
 moving_combo = Array[ExtResource("38_qpa8y")]([SubResource("Resource_sbwqj"), SubResource("Resource_xwi16"), SubResource("Resource_qpa8y")])
 stationary_combo = Array[ExtResource("38_qpa8y")]([SubResource("Resource_sweqm"), SubResource("Resource_ph33w"), SubResource("Resource_7ldla")])
+crouch_attack = SubResource("Resource_c7dlu")
 
-[node name="HitBoxComponent" type="Area2D" parent="." node_paths=PackedStringArray("collision_polygon")]
+[node name="HitBoxComponent" type="Area2D" parent="." unique_id=502909852 node_paths=PackedStringArray("collision_polygon")]
 script = ExtResource("39_sbwqj")
 collision_polygon = NodePath("CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxComponent"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1190416129]
 polygon = PackedVector2Array(6, -39, 31, -30, 34, -25, 31, -19, 19, -16, 15, -10, 23, -3, 41, -8, 49, -15, 49, -23, 38, -36)
+disabled = true
+
+[node name="HurtBoxComponent" type="Area2D" parent="." unique_id=1845226512 node_paths=PackedStringArray("health_component", "damage_owner", "standing_collision", "crouch_collision", "low_collision")]
+script = ExtResource("40_xwi16")
+health_component = NodePath("../HealthComponent")
+damage_owner = NodePath("..")
+standing_collision = NodePath("StandingCollision")
+crouch_collision = NodePath("CrouchCollision")
+low_collision = NodePath("LowCollision")
+
+[node name="StandingCollision" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=773809487]
+position = Vector2(0, -18)
+shape = SubResource("CapsuleShape2D_xwi16")
+debug_color = Color(0, 0.6509804, 0.03529412, 0.41960785)
+
+[node name="CrouchCollision" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=880717861]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_sweqm")
+disabled = true
+debug_color = Color(0, 0.65141803, 0.03411296, 0.41960785)
+
+[node name="LowCollision" type="CollisionPolygon2D" parent="HurtBoxComponent" unique_id=1330908100]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
 disabled = true

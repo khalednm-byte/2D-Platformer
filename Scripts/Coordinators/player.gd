@@ -16,6 +16,7 @@ enum Stance {
 @export var movement_component: SimpleMovementComponent
 @export var animation_component: CharacterAnimationComponent
 @export var combat_component: CombatComponent
+@export var hurtbox_component: HurtBoxComponent
 @export_category("Tweeks")
 @export var jump_buffer_duration: float = 0.12
 @export var coyote_time_duration := 0.10
@@ -42,6 +43,7 @@ var low_polygon_left: PackedVector2Array
 func _ready() -> void:
 	movement_component.initialize(self)
 	combat_component.initialize(self)
+	hurtbox_component.initialize_collision_profiles(standing_collision, crouch_collision, low_collision)
 	low_polygon_right = low_collision.polygon.duplicate()
 	low_polygon_left = _mirror_polygon_horizontally(low_polygon_right)
 	
@@ -100,11 +102,7 @@ func request_attack() -> bool:
 	]:
 		return false
 	
-	return combat_component.request_attack(
-		facing_direction,
-		is_moving(),
-		current_stance == Stance.CROUCHED
-	)
+	return combat_component.request_attack(facing_direction, is_moving(), current_stance == Stance.CROUCHED)
 
 ## Main Function
 func request_slide() -> bool:
@@ -199,6 +197,9 @@ func update_facing_direction(movement_direction: float) -> void:
 		animation_component.set_facing_direction(facing_direction)
 
 func _can_change_facing_direction() -> bool:
+	if combat_component.is_busy_attacking():
+		return false
+	
 	return current_stance not in [Stance.ENTERING_SLIDE, Stance.SLIDING, Stance.EXITING_SLIDE]
 
 ## Helper Function
@@ -262,18 +263,21 @@ func _use_standing_collision() -> void:
 	low_collision.set_deferred("disabled", true)
 	crouch_collision.set_deferred("disabled", true)
 	standing_collision.set_deferred("disabled", false) 
+	hurtbox_component.use_standing_profile() # Sync
 
 ## Helper Function
 func _use_low_collision() -> void:
 	standing_collision.set_deferred("disabled", true)
 	crouch_collision.set_deferred("disabled", true)
 	low_collision.set_deferred("disabled", false)
+	hurtbox_component.use_low_profile(facing_direction) # Sync
 
 ## Helper Function
 func _use_crouch_collision() -> void:
 	low_collision.set_deferred("disabled", true)
 	standing_collision.set_deferred("disabled", true)
 	crouch_collision.set_deferred("disabled", false)
+	hurtbox_component.use_crouch_profile() # Sync
 
 func resolve_action_input(intent: CharacterIntent) -> bool:
 	if intent.attack_pressed and request_attack():
@@ -315,8 +319,13 @@ func _physics_process(delta: float) -> void:
 		coyote_time_remaining = coyote_time_duration
 	
 	var action_started := resolve_action_input(intent)
+	if not action_started and not animation_component.is_locked() and _can_change_facing_direction():
+		update_facing_direction(intent.movement_direction)
 	
-	var adjusted_movement_direction := (intent.movement_direction * combat_component.get_movement_multiplier())
+	var adjusted_movement_direction := combat_component.get_movement_input(intent.movement_direction)
+	
+	if is_turning:
+		adjusted_movement_direction = 0.0
 	
 	match current_stance:
 		Stance.SLIDING:
@@ -331,8 +340,6 @@ func _physics_process(delta: float) -> void:
 	
 	movement_component.update_gravity(delta)
 	
-	if not action_started and not animation_component.is_locked() and _can_change_facing_direction():
-		update_facing_direction(intent.movement_direction)
 	
 	move_and_slide()
 	

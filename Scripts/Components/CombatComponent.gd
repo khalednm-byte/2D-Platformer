@@ -63,11 +63,28 @@ func _get_attack(requested_combo_index: int, is_moving: bool, is_crouched: bool)
 	
 	return combo[requested_combo_index]
 
-func get_movement_multiplier() -> float:
+func get_movement_input(raw_direction: float) -> float:
 	if current_attack == null:
-		return 1.0
+		return raw_direction
 	
-	return current_attack.movement_multiplier
+	match current_attack.movement_mode:
+		AttackData.MovementMode.STOP:
+			return 0.0
+			
+		AttackData.MovementMode.FORWARD_ONLY:
+			if is_zero_approx(raw_direction):
+				return 0.0
+			
+			# Do not allow movement opposite to the direction
+			# captured when this attack began.
+			if signf(raw_direction) != current_facing_direction:
+				return 0.0
+			
+			return (current_facing_direction * absf(raw_direction) * current_attack.movement_multiplier)
+			
+		AttackData.MovementMode.FREE:
+			return (raw_direction * current_attack.movement_multiplier)
+	return 0.0
 
 func _start_attack(new_combo_index: int, facing_direction: float, is_moving: bool, is_crouched: bool) -> bool:
 	var selected_attack := _get_attack(new_combo_index, is_moving, is_crouched)
