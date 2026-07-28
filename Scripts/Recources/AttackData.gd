@@ -4,7 +4,7 @@ class_name AttackData
 enum AttackType {
 	SLASH,
 	PIERCE,
-	FIRE
+	CROUCH
 }
 
 enum MovementMode {

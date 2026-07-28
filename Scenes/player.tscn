@@ -1243,13 +1243,16 @@ animations = [{
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack"
 active_windows = Array[Vector2i]([Vector2i(1, 2)])
+movement_mode = 1
 movement_multiplier = 0.5
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
 [sub_resource type="Resource" id="Resource_xwi16"]
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack2"
+attack_type = 1
 active_windows = Array[Vector2i]([Vector2i(2, 3)])
+movement_mode = 1
 movement_multiplier = 0.5
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
@@ -1257,6 +1260,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 script = ExtResource("38_qpa8y")
 animation_name = &"AttackCombo2Hit"
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_mode = 1
 movement_multiplier = 0.5
 metadata/_custom_type_script = "uid://tq3lioir71b6"
 
@@ -1270,6 +1274,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 [sub_resource type="Resource" id="Resource_ph33w"]
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack2NoMovement"
+attack_type = 1
 active_windows = Array[Vector2i]([Vector2i(2, 3)])
 movement_multiplier = 0.0
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1285,6 +1290,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 script = ExtResource("38_qpa8y")
 animation_name = &"CrouchAttack"
 knockback_force = 50.0
+attack_type = 2
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_multiplier = 0.25
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1311,6 +1317,7 @@ position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_clpr6")
 
 [node name="LowCollision" type="CollisionPolygon2D" parent="." unique_id=2035048171]
+visible = false
 position = Vector2(-1, 0)
 polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
 disabled = true
@@ -1362,15 +1369,24 @@ moving_combo = Array[ExtResource("38_qpa8y")]([SubResource("Resource_sbwqj"), Su
 stationary_combo = Array[ExtResource("38_qpa8y")]([SubResource("Resource_sweqm"), SubResource("Resource_ph33w"), SubResource("Resource_7ldla")])
 crouch_attack = SubResource("Resource_c7dlu")
 
-[node name="HitBoxComponent" type="Area2D" parent="." unique_id=502909852 node_paths=PackedStringArray("collision_polygon")]
+[node name="HitBoxComponent" type="Area2D" parent="." unique_id=502909852 node_paths=PackedStringArray("slash_collision_polygon", "piercing_collision_polygon", "crouch_collision_polygon")]
 script = ExtResource("39_sbwqj")
-collision_polygon = NodePath("CollisionPolygon2D")
+slash_collision_polygon = NodePath("SlashCollisionPolygon")
+piercing_collision_polygon = NodePath("PiercingCollisionPolygon")
+crouch_collision_polygon = NodePath("CrouchCollisionPolygon")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1190416129]
+[node name="SlashCollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1190416129]
 polygon = PackedVector2Array(6, -39, 31, -30, 34, -25, 31, -19, 19, -16, 15, -10, 23, -3, 41, -8, 49, -15, 49, -23, 38, -36)
 disabled = true
 
+[node name="PiercingCollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1127145306]
+polygon = PackedVector2Array(14, -39, 36, -30, 40, -24, 35, -18, 21, -9, 27, -3, 42, -5, 55, -14, 54, -23, 44, -36)
+
+[node name="CrouchCollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=178678938]
+polygon = PackedVector2Array(11, -7, 24, -15, 11, -23, 27, -23, 39, -19, 44, -14, 42, -9, 26, -4)
+
 [node name="HurtBoxComponent" type="Area2D" parent="." unique_id=1845226512 node_paths=PackedStringArray("health_component", "damage_owner", "standing_collision", "crouch_collision", "low_collision")]
+visible = false
 script = ExtResource("40_xwi16")
 health_component = NodePath("../HealthComponent")
 damage_owner = NodePath("..")
