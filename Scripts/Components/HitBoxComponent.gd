@@ -48,9 +48,14 @@ func _mirror_polygon_horizontally(source: PackedVector2Array) -> PackedVector2Ar
 	
 	return mirrored
 
+## when calling this function it activates polygons depending on the attack type in AttackData
 func activate(attack_info: AttackInfo) -> void:
 	if attack_info == null:
 		push_error("Cannot activate HitBoxComponent without AttackInfo.")
+		return
+	
+	if attack_info.data == null:
+		push_error("Cannot activate HitBoxComponent without AttackData.")
 		return
 	
 	current_attack_info = attack_info
@@ -68,30 +73,34 @@ func activate(attack_info: AttackInfo) -> void:
 		print("crouch_enabled")
 		crouch_collision_polygon.set_deferred("disabled", false)
 
-
+## when calling this function it deactivates all polygons
 func deactivate() -> void:
 	current_attack_info = null
 	hit_hurtboxes.clear()
 	
-	if slash_collision_polygon != null and not slash_collision_polygon.disabled:
+	if slash_collision_polygon != null:
 		print("slash_disabled")
 		slash_collision_polygon.set_deferred("disabled", true)
-	if piercing_collision_polygon != null and not piercing_collision_polygon.disabled:
+	if piercing_collision_polygon != null:
 		print("piercing_disabled")
 		piercing_collision_polygon.set_deferred("disabled", true)
-	if crouch_collision_polygon != null and not crouch_collision_polygon.disabled:
+	if crouch_collision_polygon != null:
 		print("crouch_disabled")
 		crouch_collision_polygon.set_deferred("disabled", true)
 
 func _set_facing_direction(direction: float) -> void:
 	if direction < 0.0:
 		slash_collision_polygon.polygon = slash_polygon_left
-		piercing_collision_polygon.polygon = piercing_polygon_left
-		crouch_collision_polygon.polygon = crouch_polygon_left
+		if piercing_collision_polygon != null:
+			piercing_collision_polygon.polygon = piercing_polygon_left
+		if crouch_collision_polygon != null:
+			crouch_collision_polygon.polygon = crouch_polygon_left
 	else:
 		slash_collision_polygon.polygon = slash_polygon_right
-		piercing_collision_polygon.polygon = piercing_polygon_right
-		crouch_collision_polygon.polygon = crouch_polygon_right
+		if piercing_collision_polygon != null:
+			piercing_collision_polygon.polygon = piercing_polygon_left
+		if crouch_collision_polygon != null:
+			crouch_collision_polygon.polygon = crouch_polygon_left
 
 
 func _on_area_entered(area: Area2D) -> void:
