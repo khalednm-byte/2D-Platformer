@@ -1,3 +1,4 @@
+@icon("res://Scripts/Components/Component_Icons/MovementComponent.png")
 extends Node
 class_name SimpleMovementComponent
 

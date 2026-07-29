@@ -13,6 +13,9 @@ enum MovementMode {
 	FREE
 }
 
+enum HitboxProfile {
+	
+}
 
 @export var animation_name: StringName
 @export var damage: float = 10.0

@@ -61,7 +61,10 @@ func activate(attack_info: AttackInfo) -> void:
 	current_attack_info = attack_info
 	hit_hurtboxes.clear()
 	
-	_set_facing_direction(attack_info.attack_direction.x)
+	_set_polygon_direction(slash_collision_polygon, slash_polygon_right, slash_polygon_left, attack_info.attack_direction.x)
+	_set_polygon_direction(piercing_collision_polygon, piercing_polygon_right, piercing_polygon_left, attack_info.attack_direction.x)
+	_set_polygon_direction(crouch_collision_polygon, crouch_polygon_right, crouch_polygon_left, attack_info.attack_direction.x)
+	
 	
 	if attack_info.data.attack_type == AttackData.AttackType.SLASH:
 		print("slash_enabled")
@@ -77,30 +80,24 @@ func activate(attack_info: AttackInfo) -> void:
 func deactivate() -> void:
 	current_attack_info = null
 	hit_hurtboxes.clear()
-	
+	_disable_all_polygons()
+
+
+func _disable_all_polygons() -> void:
 	if slash_collision_polygon != null:
-		print("slash_disabled")
 		slash_collision_polygon.set_deferred("disabled", true)
+	
 	if piercing_collision_polygon != null:
-		print("piercing_disabled")
 		piercing_collision_polygon.set_deferred("disabled", true)
+	
 	if crouch_collision_polygon != null:
-		print("crouch_disabled")
 		crouch_collision_polygon.set_deferred("disabled", true)
 
-func _set_facing_direction(direction: float) -> void:
-	if direction < 0.0:
-		slash_collision_polygon.polygon = slash_polygon_left
-		if piercing_collision_polygon != null:
-			piercing_collision_polygon.polygon = piercing_polygon_left
-		if crouch_collision_polygon != null:
-			crouch_collision_polygon.polygon = crouch_polygon_left
-	else:
-		slash_collision_polygon.polygon = slash_polygon_right
-		if piercing_collision_polygon != null:
-			piercing_collision_polygon.polygon = piercing_polygon_left
-		if crouch_collision_polygon != null:
-			crouch_collision_polygon.polygon = crouch_polygon_left
+func _set_polygon_direction(collision_polygon: CollisionPolygon2D, right_polygon: PackedVector2Array, left_polygon: PackedVector2Array, direction: float) -> void:
+	if collision_polygon == null:
+		return
+	
+	collision_polygon.polygon = (left_polygon if direction < 0.0 else right_polygon)
 
 
 func _on_area_entered(area: Area2D) -> void:
