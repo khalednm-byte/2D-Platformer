@@ -304,7 +304,7 @@ func resolve_action_input(intent: CharacterIntent) -> bool:
 	return false
 
 func _physics_process(delta: float) -> void:
-	#print("Current Stance: ", current_stance)A
+	#print("Current Stance: ", current_stance)
 	
 	var intent := input_source.get_intent()
 	

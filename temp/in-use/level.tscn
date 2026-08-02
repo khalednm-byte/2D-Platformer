@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdrbhiajr2v8k"]
+
+[ext_resource type="PackedScene" uid="uid://cnjmx6nx8008q" path="res://Scenes/Sceneries/sky.tscn" id="1_t5ina"]
+[ext_resource type="PackedScene" uid="uid://c5r63vuiwdmos" path="res://temp/paint/Ground.tscn" id="3_3rqc0"]
+[ext_resource type="PackedScene" uid="uid://c8vkxrhkn1x14" path="res://Scenes/player.tscn" id="3_6en7d"]
+[ext_resource type="PackedScene" uid="uid://2cxn2j8ryeeb" path="res://Scenes/enemy.tscn" id="4_6en7d"]
+
+[node name="Level" type="Node2D" unique_id=1189223799]
+
+[node name="Sky" parent="." unique_id=406581864 instance=ExtResource("1_t5ina")]
+position = Vector2(-320, -192)
+
+[node name="Ground" parent="." unique_id=1975312556 instance=ExtResource("3_3rqc0")]
+position = Vector2(-256, 256)
+scale = Vector2(0.5, 0.506)
+
+[node name="CharacterBody2D" parent="." unique_id=604404683 instance=ExtResource("3_6en7d")]
+position = Vector2(512, 128)
+
+[node name="Enemy" parent="." unique_id=1785620957 instance=ExtResource("4_6en7d")]
+position = Vector2(448, 128)

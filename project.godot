@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Game"
-run/main_scene="uid://c8vkxrhkn1x14"
+run/main_scene="uid://cdrbhiajr2v8k"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -69,3 +69,4 @@ Attack={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.41960785, 0.7764706, 1, 1)

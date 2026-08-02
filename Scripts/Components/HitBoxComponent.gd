@@ -14,7 +14,13 @@ var piercing_polygon_right: PackedVector2Array
 var piercing_polygon_left: PackedVector2Array
 var crouch_polygon_right: PackedVector2Array
 var crouch_polygon_left: PackedVector2Array
+# -------------------------------------
+var counter: int = 0
 
+func debug_print(message: String):
+	counter += 1
+	print(message, " ", counter)
+# -------------------------------------
 func _ready() -> void:
 	if slash_collision_polygon == null:
 		push_error("HitBoxComponent has no CollisionPolygon2D in parent: ", get_parent().name)
@@ -67,14 +73,15 @@ func activate(attack_info: AttackInfo) -> void:
 	
 	
 	if attack_info.data.attack_type == AttackData.AttackType.SLASH:
-		print("slash_enabled")
 		slash_collision_polygon.set_deferred("disabled", false)
+		slash_collision_polygon.visible = true
 	elif attack_info.data.attack_type == AttackData.AttackType.PIERCE:
-		print("piercing_enabled")
+		#debug_print("enabled")
 		piercing_collision_polygon.set_deferred("disabled", false)
+		piercing_collision_polygon.visible = true
 	elif attack_info.data.attack_type == AttackData.AttackType.CROUCH:
-		print("crouch_enabled")
 		crouch_collision_polygon.set_deferred("disabled", false)
+		crouch_collision_polygon.visible = true
 
 ## when calling this function it deactivates all polygons
 func deactivate() -> void:
@@ -86,12 +93,16 @@ func deactivate() -> void:
 func _disable_all_polygons() -> void:
 	if slash_collision_polygon != null:
 		slash_collision_polygon.set_deferred("disabled", true)
+		slash_collision_polygon.visible = false
 	
 	if piercing_collision_polygon != null:
+		#debug_print("disabled")
 		piercing_collision_polygon.set_deferred("disabled", true)
+		piercing_collision_polygon.visible = false
 	
 	if crouch_collision_polygon != null:
 		crouch_collision_polygon.set_deferred("disabled", true)
+		crouch_collision_polygon.visible = false
 
 func _set_polygon_direction(collision_polygon: CollisionPolygon2D, right_polygon: PackedVector2Array, left_polygon: PackedVector2Array, direction: float) -> void:
 	if collision_polygon == null:

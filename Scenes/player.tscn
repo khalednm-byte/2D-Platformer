@@ -1258,7 +1258,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 
 [sub_resource type="Resource" id="Resource_qpa8y"]
 script = ExtResource("38_qpa8y")
-animation_name = &"AttackCombo2Hit"
+animation_name = &"Attack"
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_mode = 1
 movement_multiplier = 0.5
@@ -1281,7 +1281,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 
 [sub_resource type="Resource" id="Resource_7ldla"]
 script = ExtResource("38_qpa8y")
-animation_name = &"AttackComboNoMovement"
+animation_name = &"Attack"
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_multiplier = 0.0
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1303,6 +1303,7 @@ radius = 11.0
 height = 28.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=604404683 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component")]
+collision_mask = 11
 script = ExtResource("1_xuaoq")
 input_source = NodePath("InputSource")
 movement_component = NodePath("SimpleMovementComponent")
@@ -1356,6 +1357,8 @@ frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1167977920]
 zoom = Vector2(3, 3)
+limit_left = 0
+limit_bottom = 700
 
 [node name="CombatComponent" type="Node2D" parent="." unique_id=926367403 node_paths=PackedStringArray("animation_component", "hitbox_component")]
 script = ExtResource("37_11gg7")

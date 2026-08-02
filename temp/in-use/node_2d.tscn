@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5i8nwlo5ax30" path="res://temp/shader_scene/canvas_layer.tscn" id="2_c7dlu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(1359, 20)
+size = Vector2(4736, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xua07"]
 size = Vector2(109, 20)
@@ -17,7 +17,7 @@ position = Vector2(323, 53)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1884574425]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=403949965]
-position = Vector2(475.5, 153)
+position = Vector2(1280, 153)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2049541487]

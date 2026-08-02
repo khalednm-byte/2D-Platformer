@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://2cxn2j8ryeeb"]
+
+[ext_resource type="Script" uid="uid://bp61q2bdn2siu" path="res://Scripts/Coordinators/enemy.gd" id="1_t8oht"]
+[ext_resource type="Texture2D" uid="uid://1d7eexj3bkmg" path="res://icon.svg" id="1_x68d2"]
+[ext_resource type="Script" uid="uid://n3qiv85d0ygh" path="res://Scripts/Components/HealthComponent.gd" id="2_35ych"]
+[ext_resource type="Script" uid="uid://c2u4h2l6w5g8x" path="res://Scripts/Components/HurtBoxComponent.gd" id="3_2i4d3"]
+[ext_resource type="Script" uid="uid://dwdjijsm4378l" path="res://Scripts/Components/Movement/SimpleMovement_Component.gd" id="4_2i4d3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mypjb"]
+size = Vector2(59, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4f64"]
+size = Vector2(59, 61)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1785620957 node_paths=PackedStringArray("movement_component")]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_t8oht")
+movement_component = NodePath("Movement")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1857290477]
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_x68d2")
+
+[node name="Health" type="Node2D" parent="." unique_id=1740291738]
+script = ExtResource("2_35ych")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1240723036 node_paths=PackedStringArray("health_component", "damage_owner", "standing_collision")]
+script = ExtResource("3_2i4d3")
+health_component = NodePath("../Health")
+damage_owner = NodePath("..")
+standing_collision = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1345127648]
+position = Vector2(-0.5, -32)
+shape = SubResource("RectangleShape2D_mypjb")
+debug_color = Color(0, 0.6464623, 0.24385715, 0.41960785)
+
+[node name="Movement" type="Node2D" parent="." unique_id=1196027149 node_paths=PackedStringArray("body")]
+script = ExtResource("4_2i4d3")
+body = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=551970453]
+position = Vector2(-0.5, -32.5)
+shape = SubResource("RectangleShape2D_d4f64")

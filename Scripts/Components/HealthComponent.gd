@@ -23,6 +23,7 @@ func _ready() -> void:
 
 
 func damage(damage_taken: AttackInfo) -> void:
+	print("damage: ", damage_taken.data.damage)
 	if damage_taken.data.damage <= 0.0 or current_health <= 0.0:
 		return
 	
@@ -46,3 +47,5 @@ func damage(damage_taken: AttackInfo) -> void:
 		
 		if current_health <= 0.0:
 			died.emit()
+	
+	print("Current health: ",current_health)

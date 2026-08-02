@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cnjmx6nx8008q"]
+
+[ext_resource type="Texture2D" uid="uid://bu0nrhuvubmt6" path="res://Assets/dungeon1/DungeonFinal/Assets/Background_2.png" id="1_8ftpg"]
+[ext_resource type="Texture2D" uid="uid://bmuaihnsi2fm2" path="res://Assets/dungeon1/DungeonFinal/Assets/Background_1.png" id="2_vehkh"]
+[ext_resource type="Texture2D" uid="uid://urvq1b757i83" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_Forest_1.png" id="3_uprwv"]
+[ext_resource type="Texture2D" uid="uid://cmlwawc35qwal" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_Forest_2.png" id="4_dx440"]
+[ext_resource type="Texture2D" uid="uid://cd1vgofpr8xxd" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_tree_1.png" id="5_msc7y"]
+[ext_resource type="Texture2D" uid="uid://b5gli0a617mo2" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_tree_2.png" id="6_ymnjh"]
+
+[node name="Sky" type="Node2D" unique_id=406581864]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=599671744]
+texture_filter = 1
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-448, -64)
+repeat_size = Vector2(1280, 0)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D" unique_id=666252916]
+position = Vector2(1024, 448.00003)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8ftpg")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1821439400]
+texture_filter = 1
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(-448, -64)
+repeat_size = Vector2(1280, 0)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D2" unique_id=2122197926]
+position = Vector2(1024, 448.00003)
+scale = Vector2(3, 3)
+texture = ExtResource("2_vehkh")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=153808133]
+texture_filter = 1
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(-448, -64)
+repeat_size = Vector2(1280, 0)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D3" unique_id=971569091]
+position = Vector2(1024, 448.00003)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("3_uprwv")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=2127956692]
+texture_filter = 1
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-448, -64)
+repeat_size = Vector2(1280, 0)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D4" unique_id=1712799480]
+position = Vector2(1024, 448.00003)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("4_dx440")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=2039813522]
+texture_filter = 1
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-448, -64)
+repeat_size = Vector2(1280, 0)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D5" unique_id=95148843]
+position = Vector2(1024, 448.00003)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("5_msc7y")
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=2086651575]
+texture_filter = 1
+scroll_scale = Vector2(0.65, 0.65)
+scroll_offset = Vector2(-448, -64)
+repeat_size = Vector2(1280, 0)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D6" unique_id=988199793]
+position = Vector2(1056, 448.00003)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("6_ymnjh")
