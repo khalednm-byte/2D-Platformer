@@ -1,3 +1,4 @@
+@icon("uid://c2hpfoprhaqmb")
 extends Area2D
 class_name HitBoxComponent
 

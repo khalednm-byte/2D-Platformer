@@ -1,0 +1,144 @@
+{
+	"categories": [
+		{
+			"uuid": "9c0a498a-5891-494c-819f-d9491a016965",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "51c71f1f-8cb9-4046-95e2-7c0db543acd8",
+			"title": "Todo",
+			"tasks": [
+				"213fa2c5-138d-4ffe-8a8d-588565503902",
+				"7ac0c803-9a85-4665-8a00-063480c38b16",
+				"904322c0-a363-4b23-bd1d-27237bf3c365",
+				"dd1e651f-3320-4874-bd5d-e5a7411d6b7d",
+				"22600a97-0236-40a3-801d-207b1292f97e",
+				"18a6494c-7c79-4ef5-8522-f157d947a063",
+				"4d510979-b33b-4ef7-9450-d4339a178a22",
+				"7225d071-14d0-46ed-b66c-47cab1bec4e9",
+				"bd1873aa-7bd4-49cf-a335-eb063e3626c3",
+				"0fe71a4e-dcd8-479e-bcf3-ad19f348ba9c"
+			]
+		},
+		{
+			"uuid": "e6f35bdb-db03-4857-93c6-21fe6997a02d",
+			"title": "Doing",
+			"tasks": [
+				"902a52bd-f1d3-424d-b79e-b4fdf7e10196"
+			]
+		},
+		{
+			"uuid": "987bdab8-2f12-4614-8638-ece38b50640d",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "213fa2c5-138d-4ffe-8a8d-588565503902",
+			"title": "Add 'HitBoxProfiles' to AttackData",
+			"description": "",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "7ac0c803-9a85-4665-8a00-063480c38b16",
+			"title": "Add Knockback force feature",
+			"description": "",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "902a52bd-f1d3-424d-b79e-b4fdf7e10196",
+			"title": "Painting the Main Scene",
+			"description": "Building the house scene and its surroundings.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "904322c0-a363-4b23-bd1d-27237bf3c365",
+			"title": "Add interactions with props",
+			"description": "",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "dd1e651f-3320-4874-bd5d-e5a7411d6b7d",
+			"title": "Add animated props",
+			"description": "",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "22600a97-0236-40a3-801d-207b1292f97e",
+			"title": "Add interactive props",
+			"description": "e.g make the seeds/bushes move and react to the player's movement.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "18a6494c-7c79-4ef5-8522-f157d947a063",
+			"title": "Build Player InteractionComponent",
+			"description": "Track the nearest available interactable and invoke it when the Interact action is pressed.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": [
+				{
+					"details": "Define a common interaction interface or base class.",
+					"done": false
+				},
+				{
+					"details": "Track interactables entering and leaving range.",
+					"done": false
+				},
+				{
+					"details": "Call interact() when the Interact action is pressed.",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "4d510979-b33b-4ef7-9450-d4339a178a22",
+			"title": "Create interaction prompt UI",
+			"description": "Display and hide an interaction prompt when the player enters or exits an interactable's range.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "7225d071-14d0-46ed-b66c-47cab1bec4e9",
+			"title": "Place and test the anvil in the main level",
+			"description": "Instance the anvil in the main level and verify proximity detection, non-blocking movement, and interaction-layer behavior.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "bd1873aa-7bd4-49cf-a335-eb063e3626c3",
+			"title": "Implement anvil interaction responses",
+			"description": "Replace placeholder prints with a locked-state message and the forging interface or event.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "0fe71a4e-dcd8-479e-bcf3-ad19f348ba9c",
+			"title": "Clean development diagnostics",
+			"description": "Remove obsolete debug prints, unused constants, commented diagnostics, and whitespace warnings once the related systems are verified.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"51c71f1f-8cb9-4046-95e2-7c0db543acd8"
+			],
+			[
+				"e6f35bdb-db03-4857-93c6-21fe6997a02d"
+			],
+			[
+				"987bdab8-2f12-4614-8638-ece38b50640d"
+			]
+		]
+	}
+}

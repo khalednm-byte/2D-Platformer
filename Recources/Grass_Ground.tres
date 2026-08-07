@@ -1,0 +1,9 @@
+[gd_resource type="TileSet" format=3 uid="uid://b6ejakxcbrrul"]
+
+[resource]
+physics_layer_0/collision_layer = 8
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Normal Dirt"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Darker Dirt 1"
+terrain_set_0/terrain_1/color = Color(0.30581757, 0.15249857, 0.104747035, 1)

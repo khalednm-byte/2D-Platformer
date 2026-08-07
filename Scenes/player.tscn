@@ -1302,7 +1302,7 @@ height = 36.0
 radius = 11.0
 height = 28.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=604404683 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component")]
+[node name="Player" type="CharacterBody2D" unique_id=604404683 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component")]
 collision_mask = 11
 script = ExtResource("1_xuaoq")
 input_source = NodePath("InputSource")
@@ -1318,13 +1318,11 @@ position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_clpr6")
 
 [node name="LowCollision" type="CollisionPolygon2D" parent="." unique_id=2035048171]
-visible = false
 position = Vector2(-1, 0)
 polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
 disabled = true
 
 [node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=1153845567]
-visible = false
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_ypfnu")
 disabled = true
@@ -1352,13 +1350,17 @@ script = ExtResource("35_11gg7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1534660958]
 position = Vector2(5, -40)
 sprite_frames = SubResource("SpriteFrames_350sb")
-animation = &"CrouchAttack"
-frame = 1
+animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1167977920]
 zoom = Vector2(3, 3)
+process_callback = 0
 limit_left = 0
-limit_bottom = 700
+limit_top = 0
+limit_right = 1280
+limit_bottom = 650
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
 
 [node name="CombatComponent" type="Node2D" parent="." unique_id=926367403 node_paths=PackedStringArray("animation_component", "hitbox_component")]
 script = ExtResource("37_11gg7")

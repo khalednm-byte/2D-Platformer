@@ -1,4 +1,4 @@
-@icon("res://Scripts/Components/Component_Icons/input_component_icon.png")
+@icon("uid://d3mujbd2xds4g")
 extends BaseInputSource
 class_name PlayerInputSource
 

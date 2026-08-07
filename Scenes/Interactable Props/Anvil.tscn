@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b8jw1vqyku4nw"]
+
+[ext_resource type="Script" uid="uid://bu1i24pfibj8" path="res://Scripts/Interactables/anvil.gd" id="1_cc2dw"]
+[ext_resource type="Texture2D" uid="uid://dcnc3rvw2ltaa" path="res://Assets/Anvil.png" id="1_fexgj"]
+[ext_resource type="Script" uid="uid://chxhmbsuanqmp" path="res://Scripts/Components/ProgressRequirementComponent.gd" id="3_y3y6x"]
+
+[node name="Anvil" type="Area2D" unique_id=424113308 node_paths=PackedStringArray("progress_requirement")]
+collision_layer = 32
+script = ExtResource("1_cc2dw")
+progress_requirement = NodePath("ProgressRequirementComponent")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=733799843]
+polygon = PackedVector2Array(-31, 1, -31, -12, -19, -22, -17, -35, -24, -49, -41, -52, -52, -65, -52, -71, 48, -70, 46, -61, 24, -50, 18, -36, 18, -24, 32, -10, 32, 1)
+
+[node name="Anvil" type="Sprite2D" parent="." unique_id=522651668]
+position = Vector2(0, -40)
+texture = ExtResource("1_fexgj")
+
+[node name="ProgressRequirementComponent" type="Node" parent="." unique_id=738330561]
+script = ExtResource("3_y3y6x")
+metadata/_custom_type_script = "uid://chxhmbsuanqmp"

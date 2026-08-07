@@ -1,4 +1,4 @@
-@icon("res://Scripts/Components/Component_Icons/MovementComponent.png")
+@icon("uid://cr2j44jnjq171")
 extends Node
 class_name SimpleMovementComponent
 
@@ -72,10 +72,8 @@ func update_horizontal_movement(direction: float, delta: float) -> void:
 
 func update_gravity(delta: float) -> void:
 	if body == null:
-		push_error("Cannot apply gravity on a null body. Check Movement component Script in parent: ", get_parent().name)
 		return
 	if not body.is_on_floor():
-		print(get_parent().name, " is not on floor")
 		body.velocity.y += gravity * delta
 
 func can_start_slide() -> bool:

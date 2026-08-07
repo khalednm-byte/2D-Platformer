@@ -42,7 +42,7 @@ func _ready() -> void:
 	animation_component.attack_finished.connect(_on_attack_finished)
 	animation_component.animation_frame_changed.connect(_on_animation_frame_changed)
 
-
+## Initialize To know who the attacker is.
 func initialize(attacker_reference: Node2D) -> void:
 	attacker = attacker_reference
 
@@ -50,14 +50,15 @@ func _get_attack(requested_combo_index: int, is_moving: bool, is_crouched: bool)
 	if is_crouched:
 		if requested_combo_index != 0:
 			return null
-	
 		return crouch_attack
 	
+	## to decide weather this is a stationary or moving combo
 	var combo := moving_combo if is_moving else stationary_combo
 	
+	# incoming combo indecies cannot be less than zero, because if so no attack would be made.
 	if requested_combo_index < 0:
 		return null
-	
+	# reject excessive attack
 	if requested_combo_index >= combo.size():
 		return null
 	
@@ -100,6 +101,7 @@ func _start_attack(new_combo_index: int, facing_direction: float, is_moving: boo
 	hitbox_active = false
 	
 	if not animation_component.try_play_attack(selected_attack.animation_name):
+		# then reset
 		current_attack = null
 		current_attack_is_crouched = false
 		is_attacking = false
@@ -127,7 +129,6 @@ func request_attack(facing_direction: float, is_moving: bool, is_crouched: bool)
 		return true
 	
 	return _start_attack(0, facing_direction, is_moving, is_crouched)
-
 
 func is_busy_attacking() -> bool:
 	return is_attacking
@@ -161,7 +162,6 @@ func _on_animation_frame_changed(animation_name: StringName, frame: int) -> void
 	
 	if should_be_active and not hitbox_active:
 		_activate_hitbox()
-	
 	elif not should_be_active and hitbox_active:
 		_deactivate_hitbox()
 
@@ -177,7 +177,7 @@ func _on_attack_finished() -> void:
 	
 	var next_combo_index := internal_combo_index + 1
 	var next_is_moving := queued_is_moving
-	
+	# reset
 	attack_queued = false
 	queued_is_moving = false
 	is_attacking = false

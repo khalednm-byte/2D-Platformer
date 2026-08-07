@@ -1,4 +1,4 @@
-@icon("res://Scripts/Components/Component_Icons/animation_component_icon.png")
+@icon("uid://ds0cewxuwiuwy")
 extends Node
 class_name CharacterAnimationComponent
 
