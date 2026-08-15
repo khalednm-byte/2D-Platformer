@@ -1,4 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://tdunfdfkrpry"]
+
+[ext_resource type="Texture2D" uid="uid://ctffycwi2hnpo" path="res://Assets/props_plants_buildings_etc/ELR-WindyLeafs/ELR_SpringlLeaf1.png" id="1_leaf_1"]
+[ext_resource type="Texture2D" uid="uid://cj2jh1iq27yn8" path="res://Assets/props_plants_buildings_etc/ELR-WindyLeafs/ELR_FallLeaf1.png" id="2_p17j8"]
+[ext_resource type="Texture2D" uid="uid://1sickiusiasr" path="res://Assets/props_plants_buildings_etc/ELR-WindyLeafs/ELR_SpringlLeaf3.png" id="3_leaf_3"]
 
 [sub_resource type="Gradient" id="Gradient_air_fade"]
 offsets = PackedFloat32Array(0, 0.15, 0.8, 1)
@@ -12,25 +16,66 @@ emission_shape = 3
 emission_box_extents = Vector3(640, 245, 1)
 direction = Vector3(1, -0.12, 0)
 spread = 35.0
-gravity = Vector3(0, -0.35, 0)
 initial_velocity_min = 4.0
 initial_velocity_max = 9.0
+gravity = Vector3(0, -0.35, 0)
 scale_min = 0.6
 scale_max = 1.4
 color_ramp = SubResource("GradientTexture_air_fade")
 
-[sub_resource type="QuadMesh" id="QuadMesh_dust_pixel"]
-size = Vector2(2, 2)
+[sub_resource type="Gradient" id="Gradient_leaf_fade"]
+offsets = PackedFloat32Array(0, 0.08, 0.88, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="AirParticles" type="GPUParticles2D"]
+[sub_resource type="GradientTexture1D" id="GradientTexture_leaf_fade"]
+gradient = SubResource("Gradient_leaf_fade")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_leaves"]
+emission_shape = 3
+emission_box_extents = Vector3(8, 220, 1)
+direction = Vector3(1, -0.08, 0)
+spread = 12.0
+initial_velocity_min = 90.0
+initial_velocity_max = 150.0
+angular_velocity_min = -110.0
+angular_velocity_max = 110.0
+gravity = Vector3(0, 6, 0)
+scale_min = 0.75
+scale_max = 1.25
+color_ramp = SubResource("GradientTexture_leaf_fade")
+
+[node name="AirParticles" type="GPUParticles2D" unique_id=1086395280]
 position = Vector2(640, 300)
 amount = 48
 lifetime = 9.0
+preprocess = 9.0
 randomness = 0.65
 visibility_rect = Rect2(-680, -280, 1360, 560)
-local_coords = false
-fixed_fps = 30
-preprocess = 9.0
 process_material = SubResource("ParticleProcessMaterial_air")
-draw_pass_1 = SubResource("QuadMesh_dust_pixel")
 
+[node name="WindLeaves1" type="GPUParticles2D" parent="." unique_id=1840903379]
+position = Vector2(-690, 0)
+amount = 6
+texture = ExtResource("1_leaf_1")
+lifetime = 11.0
+randomness = 0.75
+visibility_rect = Rect2(-32, -280, 1500, 560)
+process_material = SubResource("ParticleProcessMaterial_leaves")
+
+[node name="WindLeaves2" type="GPUParticles2D" parent="." unique_id=742331333]
+position = Vector2(-720, 24)
+amount = 5
+texture = ExtResource("2_p17j8")
+lifetime = 12.0
+randomness = 0.8
+visibility_rect = Rect2(-32, -280, 1540, 560)
+process_material = SubResource("ParticleProcessMaterial_leaves")
+
+[node name="WindLeaves3" type="GPUParticles2D" parent="." unique_id=2067126411]
+position = Vector2(-750, -18)
+amount = 4
+texture = ExtResource("3_leaf_3")
+lifetime = 13.0
+randomness = 0.85
+visibility_rect = Rect2(-32, -280, 1580, 560)
+process_material = SubResource("ParticleProcessMaterial_leaves")

@@ -3,18 +3,88 @@
 [ext_resource type="PackedScene" uid="uid://cnjmx6nx8008q" path="res://Scenes/Sceneries/sky.tscn" id="1_t5ina"]
 [ext_resource type="PackedScene" uid="uid://c5r63vuiwdmos" path="res://temp/paint/Ground.tscn" id="3_3rqc0"]
 [ext_resource type="PackedScene" uid="uid://c8vkxrhkn1x14" path="res://Scenes/player.tscn" id="3_6en7d"]
-[ext_resource type="PackedScene" path="res://Scenes/particles/AirParticles.tscn" id="5_air_particles"]
+[ext_resource type="PackedScene" uid="uid://b8jw1vqyku4nw" path="res://Scenes/Interactable Props/Anvil.tscn" id="3_7uw81"]
+[ext_resource type="PackedScene" uid="uid://tdunfdfkrpry" path="res://Scenes/particles/AirParticles.tscn" id="5_air_particles"]
+[ext_resource type="PackedScene" uid="uid://bdxwgbef3fikl" path="res://Scenes/blacksmith.tscn" id="5_f8s8q"]
+[ext_resource type="PackedScene" uid="uid://bp0cdl6pxpevt" path="res://Scenes/UI/player_ui.tscn" id="7_f8s8q"]
+
+[sub_resource type="Gradient" id="Gradient_p17j8"]
+offsets = PackedFloat32Array(0, 0.49646643, 1)
+colors = PackedColorArray(0.7490196, 0.84705883, 0.83137256, 0, 0.7487233, 0.84784997, 0.8333146, 1, 0.7490196, 0.84705883, 0.83137256, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f8s8q"]
+gradient = SubResource("Gradient_p17j8")
+width = 1
+height = 32
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_jymwg"]
+colors = PackedColorArray(1, 1, 1, 0.09411765, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2sdbv"]
+gradient = SubResource("Gradient_jymwg")
+
+[sub_resource type="Gradient" id="Gradient_yvetr"]
+offsets = PackedFloat32Array(0, 0.48464912, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d4f64"]
+gradient = SubResource("Gradient_yvetr")
+
+[sub_resource type="Curve" id="Curve_tenlx"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.111111104, 77.165344), 0.0, 0.0, 0, 0, Vector2(0.1915709, 1.5747986), 0.0, 0.0, 0, 0, Vector2(0.2988506, 99.212585), 0.0, 0.0, 0, 0, Vector2(0.37164748, 7.873993), 0.0, 0.0, 0, 0, Vector2(0.4252873, 92.913376), 0.0, 0.0, 0, 0, Vector2(0.5134099, -1.5747986), 0.0, 0.0, 0, 0, Vector2(0.59770113, 89.76376), -352.30588, -352.30588, 0, 0, Vector2(0.69731796, -4.7244263), 0.0, 0.0, 0, 0, Vector2(0.78544056, 108.66141), 0.0, 0.0, 0, 0, Vector2(0.8544061, -1.5747986), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 12
+
+[sub_resource type="CurveTexture" id="CurveTexture_f1wcj"]
+curve = SubResource("Curve_tenlx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fteil"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 200, 1)
+gravity = Vector3(100, 20, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 5.9999976
+tangential_accel_curve = SubResource("CurveTexture_f1wcj")
+damping_max = 100.00001
+scale_min = 1.5
+scale_max = 1.8
+color_ramp = SubResource("GradientTexture1D_d4f64")
+color_initial_ramp = SubResource("GradientTexture1D_2sdbv")
 
 [node name="Level" type="Node2D" unique_id=1189223799]
 
 [node name="Sky" parent="." unique_id=406581864 instance=ExtResource("1_t5ina")]
 position = Vector2(-320, -192)
 
-[node name="AirParticles" parent="." unique_id=1768906422 instance=ExtResource("5_air_particles")]
-
 [node name="Ground" parent="." unique_id=1975312556 instance=ExtResource("3_3rqc0")]
 position = Vector2(256, 256)
 scale = Vector2(0.5, 0.506)
 
-[node name="CharacterBody2D" parent="." unique_id=604404683 instance=ExtResource("3_6en7d")]
-position = Vector2(512, 128)
+[node name="AirParticles" parent="." unique_id=1768906422 instance=ExtResource("5_air_particles")]
+
+[node name="Anvil" parent="." unique_id=424113308 instance=ExtResource("3_7uw81")]
+position = Vector2(271.00003, 577.00006)
+scale = Vector2(0.40531853, 0.40531853)
+
+[node name="Blacksmith" parent="." unique_id=1494163714 instance=ExtResource("5_f8s8q")]
+position = Vector2(455, 578)
+
+[node name="Player" parent="." unique_id=604404683 node_paths=PackedStringArray("ui_component") instance=ExtResource("3_6en7d")]
+position = Vector2(-105, 547)
+ui_component = NodePath("PlayerUI")
+metadata/_edit_lock_ = true
+
+[node name="PlayerUI" parent="Player" unique_id=1156899883 instance=ExtResource("7_f8s8q")]
+
+[node name="WindTrails" type="GPUParticles2D" parent="Player" unique_id=73381303]
+position = Vector2(-65, -7)
+amount = 15
+texture = SubResource("GradientTexture2D_f8s8q")
+lifetime = 5.0
+preprocess = 2.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_fteil")

@@ -10,8 +10,9 @@ enum Stance {
 	SLIDING,
 	EXITING_SLIDE
 }
-
-@export_category("Components")
+@export_category("UI Component")
+@export var ui_component: PlayerUI
+@export_category("Gameplay Components")
 @export var input_source: BaseInputSource
 @export var movement_component: SimpleMovementComponent
 @export var animation_component: CharacterAnimationComponent
@@ -36,14 +37,19 @@ var turn_animation_min_speed: float: ## the minimum speed where the player must 
 		return movement_component.crouch_speed + 10.0 
 var jump_buffer_time_remaining: float = 0.0
 var coyote_time_remaining := 0.0
-
+# a copy of slide collision x,y points to select according to player's movement direction
 var low_polygon_right: PackedVector2Array
 var low_polygon_left: PackedVector2Array
+
+var nearby_interactables: Array[InteractableComponent]
+var current_interactable: InteractableComponent
 
 func _ready() -> void:
 	movement_component.initialize(self)
 	combat_component.initialize(self)
 	hurtbox_component.initialize_collision_profiles(standing_collision, crouch_collision, low_collision)
+	if ui_component == null:
+		push_warning("Player has no UI assigned!")
 	low_polygon_right = low_collision.polygon.duplicate()
 	low_polygon_left = _mirror_polygon_horizontally(low_polygon_right)
 	
@@ -53,6 +59,66 @@ func _ready() -> void:
 	animation_component.slide_enter_finished.connect(_on_slide_enter_finished)
 	animation_component.slide_exit_finished.connect(_on_slide_exit_finished)
 
+func register_interactable(interactable: InteractableComponent) -> void:
+	if not is_instance_valid(interactable):
+		return
+	
+	if interactable not in nearby_interactables:
+		nearby_interactables.append(interactable)
+	
+	_update_current_interactable()
+
+func unregister_interactable(interactable: InteractableComponent) -> void:
+	nearby_interactables.erase(interactable)
+	_update_current_interactable()
+
+func _find_best_interactable() -> InteractableComponent:
+	var best: InteractableComponent = null
+	
+	for candidate in nearby_interactables:
+		if not is_instance_valid(candidate):
+			continue
+			
+		if not candidate.enabled:
+			continue
+			
+		if best == null:
+			best = candidate
+			continue
+			
+		if candidate.interaction_priority > best.interaction_priority:
+			best = candidate
+			continue
+			
+		if candidate.interaction_priority == best.interaction_priority:
+			var candidate_distance := global_position.distance_squared_to(candidate.global_position)
+			var best_distance := global_position.distance_squared_to(best.global_position)
+			
+			if candidate_distance < best_distance:
+				best = candidate
+	
+	return best
+
+func _update_current_interactable() -> void:
+	var previous := current_interactable
+	_remove_invalid_interactables()
+	current_interactable = _find_best_interactable()
+	
+	if current_interactable == previous:
+		return
+	
+	if current_interactable == null:
+		if ui_component != null:
+			ui_component.hide_interaction_prompt()
+		return
+	
+	if ui_component != null:
+		ui_component.show_interaction_prompt(current_interactable.action_text, current_interactable.display_name)
+
+func _remove_invalid_interactables() -> void:
+	for index in range(nearby_interactables.size() - 1, -1, -1):
+		if not is_instance_valid(nearby_interactables[index]):
+			nearby_interactables.remove_at(index)
 
 func _mirror_polygon_horizontally(source: PackedVector2Array) -> PackedVector2Array:
 	var mirrored := PackedVector2Array()
@@ -149,6 +215,15 @@ func request_jump() -> bool:
 	return true
 
 ## Main Function
+func request_interaction() -> bool:
+	_update_current_interactable()
+	
+	if not is_instance_valid(current_interactable):
+		return false
+	
+	return current_interactable.interact(self)
+
+## Main Function
 func request_slide_exit() -> bool:
 	if current_stance != Stance.SLIDING:
 		return false
@@ -187,7 +262,7 @@ func update_facing_direction(movement_direction: float) -> void:
 	
 	if is_turning:
 		return
-	#turn_animation_min_speed = movement_component.crouch_speed + 10
+	
 	if absf(velocity.x) > turn_animation_min_speed and is_on_floor():
 		if animation_component.try_play_turn(facing_direction, requested_direction):
 			is_turning = true
@@ -286,6 +361,8 @@ func resolve_action_input(intent: CharacterIntent) -> bool:
 	if animation_component.is_locked():
 		return false
 	
+	if intent.interact_pressed and request_interaction():
+		return true
 	
 	if intent.slide_pressed and request_slide():
 		return true
@@ -342,5 +419,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+	
+	if nearby_interactables.size() > 1:
+		_update_current_interactable()
 	
 	animation_component.update_locomotion(current_stance == Stance.CROUCHED, is_on_floor(), current_stance == Stance.SLIDING, velocity.x)

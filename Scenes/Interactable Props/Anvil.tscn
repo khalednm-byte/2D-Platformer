@@ -1,21 +1,37 @@
 [gd_scene format=3 uid="uid://b8jw1vqyku4nw"]
 
 [ext_resource type="Script" uid="uid://bu1i24pfibj8" path="res://Scripts/Interactables/anvil.gd" id="1_cc2dw"]
-[ext_resource type="Texture2D" uid="uid://dcnc3rvw2ltaa" path="res://Assets/Anvil.png" id="1_fexgj"]
+[ext_resource type="Texture2D" uid="uid://dcnc3rvw2ltaa" path="res://Assets/props_plants_buildings_etc/pixellab/Anvil.png" id="1_fexgj"]
 [ext_resource type="Script" uid="uid://chxhmbsuanqmp" path="res://Scripts/Components/ProgressRequirementComponent.gd" id="3_y3y6x"]
+[ext_resource type="Script" uid="uid://dhm5ffwdvc0d4" path="res://Scripts/Components/interactions/InteractionComponent.gd" id="4_8xwwp"]
+[ext_resource type="PackedScene" uid="uid://dii70tpby20ml" path="res://Scenes/UI/anvil_ui.tscn" id="5_fuiob"]
 
-[node name="Anvil" type="Area2D" unique_id=424113308 node_paths=PackedStringArray("progress_requirement")]
-collision_layer = 32
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mypjb"]
+size = Vector2(172, 98)
+
+[node name="Anvil" type="Node2D" unique_id=853896465 node_paths=PackedStringArray("progress_requirement", "ui_component")]
 script = ExtResource("1_cc2dw")
 progress_requirement = NodePath("ProgressRequirementComponent")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=733799843]
-polygon = PackedVector2Array(-31, 1, -31, -12, -19, -22, -17, -35, -24, -49, -41, -52, -52, -65, -52, -71, 48, -70, 46, -61, 24, -50, 18, -36, 18, -24, 32, -10, 32, 1)
+ui_component = NodePath("AnvilUI")
 
 [node name="Anvil" type="Sprite2D" parent="." unique_id=522651668]
-position = Vector2(0, -40)
+position = Vector2(0, -29)
+scale = Vector2(0.703125, 0.703125)
 texture = ExtResource("1_fexgj")
 
 [node name="ProgressRequirementComponent" type="Node" parent="." unique_id=738330561]
 script = ExtResource("3_y3y6x")
 metadata/_custom_type_script = "uid://chxhmbsuanqmp"
+
+[node name="InteractionComponent" type="Area2D" parent="." unique_id=383580043]
+collision_layer = 32
+script = ExtResource("4_8xwwp")
+display_name = "Anvil"
+action_text = "Use"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" unique_id=456059781]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_mypjb")
+debug_color = Color(0.2373792, 0.50797164, 1, 0.41960785)
+
+[node name="AnvilUI" parent="." unique_id=954614421 instance=ExtResource("5_fuiob")]

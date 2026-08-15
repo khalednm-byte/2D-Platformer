@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dii70tpby20ml"]
+
+[ext_resource type="Script" uid="uid://bm26gc4fbvcie" path="res://Scripts/UI/anvil_ui.gd" id="1_5pfd6"]
+[ext_resource type="FontFile" uid="uid://d2a8hspy3yer7" path="res://Assets/Fonts/Kingscribe-Regular.ttf" id="2_fvd8l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mypjb"]
+font = ExtResource("2_fvd8l")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvd8l"]
+font = ExtResource("2_fvd8l")
+font_size = 60
+
+[node name="AnvilUI" type="CanvasLayer" unique_id=954614421]
+script = ExtResource("1_5pfd6")
+
+[node name="Forging" type="Label" parent="." unique_id=736978004]
+visible = false
+offset_left = 688.0
+offset_top = 464.0
+offset_right = 1265.0
+offset_bottom = 525.0
+theme_override_fonts/font = ExtResource("2_fvd8l")
+text = "Hey you opened the anvil!"
+label_settings = SubResource("LabelSettings_mypjb")
+
+[node name="LockedMessage" type="Label" parent="." unique_id=1781618040]
+visible = false
+offset_left = 688.0
+offset_top = 464.0
+offset_right = 1265.0
+offset_bottom = 525.0
+theme_override_fonts/font = ExtResource("2_fvd8l")
+text = "You Need the hammer first!"
+label_settings = SubResource("LabelSettings_fvd8l")
+
+[node name="Timer" type="Timer" parent="LockedMessage" unique_id=1008502762]
+wait_time = 2.0
+one_shot = true

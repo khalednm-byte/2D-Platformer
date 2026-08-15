@@ -25,13 +25,19 @@ ProgressManager="*uid://evmuegpc51hq"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/at-icons/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Assets/props_plants_buildings_etc/environment/32x32 Dungeon Pack/": "green"
+}
 
 [input]
 

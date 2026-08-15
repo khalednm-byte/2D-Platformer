@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://cu22hwkljj5o3"]
 
-[ext_resource type="Texture2D" uid="uid://os0sj87siwom" path="res://Assets/Country-village_asset_pack/Country-village_asset_pack/1_Tileset & props/Country_village_props.png" id="1_jv1n0"]
-[ext_resource type="Texture2D" uid="uid://fp4a1j6wuluw" path="res://Assets/environment/FreePlatformerNA/Foreground/Trees.png" id="2_rre20"]
+[ext_resource type="Texture2D" uid="uid://os0sj87siwom" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/Country-village_asset_pack/1_Tileset & props/Country_village_props.png" id="1_jv1n0"]
+[ext_resource type="Texture2D" uid="uid://fp4a1j6wuluw" path="res://Assets/props_plants_buildings_etc/environment/FreePlatformerNA/Foreground/Trees.png" id="2_rre20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rre20"]
 resource_name = "Courntry Village"

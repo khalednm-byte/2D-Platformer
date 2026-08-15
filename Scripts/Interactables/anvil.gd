@@ -1,37 +1,30 @@
-extends Area2D
+extends Interaction
+class_name AnvilInteractable
 
-signal anvil_interact_ui(showing_ui: bool)
 
 @export var progress_requirement: ProgressRequirementComponent
+@export var ui_component: AnvilUI
 
-var show_ui: bool = false
+const REQUIRED_HAMMER: StringName = &"Recovered_Forging_Hammer"
 
-const FLAG: StringName = &"FLAG"
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	connect("body_entered", _on_body_entered)
-	connect("body_exited", _on_body_exited)
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		show_ui = true
-		anvil_interact_ui.emit(show_ui)
-
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
-		show_ui = false
-		anvil_interact_ui.emit(show_ui)
+	$InteractionComponent.interaction_requested.connect(_on_interaction_requested)
+	progress_requirement.required_flags.append(REQUIRED_HAMMER)
 
 func can_interact() -> bool:
 	return (progress_requirement == null or progress_requirement.is_satisfied())
 
-func interact() -> void:
+
+func _on_interaction_requested(_player: Player) -> void:
 	if not can_interact():
-		#show_locked_message()
-		print("Function Fire: show_locked_message()")
+		show_locked_message()
 		return
 	
-	#open_forging_menu()
-	print("Function Fire: open_forging_menu()")
+	open_forging_menu()
+
+func show_locked_message() -> void:
+	ui_component.show_locked_message()
+
+
+func open_forging_menu() -> void:
+	ui_component.show_forge_menu()

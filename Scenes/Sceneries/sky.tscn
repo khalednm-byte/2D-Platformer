@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cnjmx6nx8008q"]
 
-[ext_resource type="Texture2D" uid="uid://bu0nrhuvubmt6" path="res://Assets/dungeon1/DungeonFinal/Assets/Background_2.png" id="1_8ftpg"]
-[ext_resource type="Texture2D" uid="uid://bmuaihnsi2fm2" path="res://Assets/dungeon1/DungeonFinal/Assets/Background_1.png" id="2_vehkh"]
-[ext_resource type="Texture2D" uid="uid://urvq1b757i83" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_Forest_1.png" id="3_uprwv"]
-[ext_resource type="Texture2D" uid="uid://cmlwawc35qwal" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_Forest_2.png" id="4_dx440"]
-[ext_resource type="Texture2D" uid="uid://cd1vgofpr8xxd" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_tree_1.png" id="5_msc7y"]
-[ext_resource type="Texture2D" uid="uid://b5gli0a617mo2" path="res://Assets/Country-village_asset_pack/2_Parallax background/Back_tree_2.png" id="6_ymnjh"]
+[ext_resource type="Texture2D" uid="uid://bu0nrhuvubmt6" path="res://Assets/props_plants_buildings_etc/dungeon1/DungeonFinal/Assets/Background_2.png" id="1_8ftpg"]
+[ext_resource type="Texture2D" uid="uid://bmuaihnsi2fm2" path="res://Assets/props_plants_buildings_etc/dungeon1/DungeonFinal/Assets/Background_1.png" id="2_vehkh"]
+[ext_resource type="Texture2D" uid="uid://urvq1b757i83" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/2_Parallax background/Back_Forest_1.png" id="3_uprwv"]
+[ext_resource type="Texture2D" uid="uid://cmlwawc35qwal" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/2_Parallax background/Back_Forest_2.png" id="4_dx440"]
+[ext_resource type="Texture2D" uid="uid://cd1vgofpr8xxd" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/2_Parallax background/Back_tree_1.png" id="5_msc7y"]
+[ext_resource type="Texture2D" uid="uid://b5gli0a617mo2" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/2_Parallax background/Back_tree_2.png" id="6_ymnjh"]
 
 [node name="Sky" type="Node2D" unique_id=406581864]
 

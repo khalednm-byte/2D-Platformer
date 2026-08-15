@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b204w3quuminy"]
+
+[ext_resource type="Shader" uid="uid://dh4jehhsqntyy" path="res://Shaders/Wind Sway Effect/wind_sway_from_itch/itch_wind.gdshader" id="1_sf075"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_sf075")
+shader_parameter/margin_scale = 2.0000000475
+shader_parameter/wind_strength = 1.0
+shader_parameter/wind_scale = 10.0
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_height_start = 0.0
+shader_parameter/sway_strength = 0.2000000095
+shader_parameter/sway_speed = 0.2
+shader_parameter/sway_height_start = 0.0

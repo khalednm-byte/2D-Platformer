@@ -1,37 +1,37 @@
 [gd_scene format=3 uid="uid://c8vkxrhkn1x14"]
 
 [ext_resource type="Script" uid="uid://w24fik0gh3mi" path="res://Scripts/Coordinators/player.gd" id="1_xuaoq"]
-[ext_resource type="Texture2D" uid="uid://c4m8v58fyy6rp" path="res://Assets/Player/_Attack.png" id="1_ypfnu"]
-[ext_resource type="Texture2D" uid="uid://t8a0ctsxw3il" path="res://Assets/Player/_Attack2.png" id="2_xuaoq"]
-[ext_resource type="Texture2D" uid="uid://cyyxt84bgyeid" path="res://Assets/Player/_Attack2NoMovement.png" id="3_wohnl"]
-[ext_resource type="Texture2D" uid="uid://btk86r61w4r8c" path="res://Assets/Player/_AttackCombo2hit.png" id="4_36dho"]
+[ext_resource type="Texture2D" uid="uid://c4m8v58fyy6rp" path="res://Assets/props_plants_buildings_etc/Player/_Attack.png" id="1_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://t8a0ctsxw3il" path="res://Assets/props_plants_buildings_etc/Player/_Attack2.png" id="2_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://cyyxt84bgyeid" path="res://Assets/props_plants_buildings_etc/Player/_Attack2NoMovement.png" id="3_wohnl"]
+[ext_resource type="Texture2D" uid="uid://btk86r61w4r8c" path="res://Assets/props_plants_buildings_etc/Player/_AttackCombo2hit.png" id="4_36dho"]
 [ext_resource type="Script" uid="uid://bg3jgifqlao7q" path="res://Scripts/Recources/AnimationSets.gd" id="5_8gxox"]
-[ext_resource type="Texture2D" uid="uid://doyme6ufhw6rf" path="res://Assets/Player/_AttackComboNoMovement.png" id="5_yh6i2"]
-[ext_resource type="Texture2D" uid="uid://dxv05u3vxsr37" path="res://Assets/Player/_AttackNoMovement.png" id="6_nv4vc"]
-[ext_resource type="Texture2D" uid="uid://dq74lhqq4dra6" path="res://Assets/Player/_Crouch.png" id="7_8gxox"]
-[ext_resource type="Texture2D" uid="uid://dwd6gsvrarpdm" path="res://Assets/Player/_CrouchAttack.png" id="8_11gg7"]
-[ext_resource type="Texture2D" uid="uid://chnvsd24e7he8" path="res://Assets/Player/_CrouchFull.png" id="9_qpa8y"]
-[ext_resource type="Texture2D" uid="uid://b2cv4jb5xs4xy" path="res://Assets/Player/_CrouchTransition.png" id="10_sbwqj"]
-[ext_resource type="Texture2D" uid="uid://voryqfo5bu88" path="res://Assets/Player/_CrouchWalk.png" id="11_xwi16"]
-[ext_resource type="Texture2D" uid="uid://c620hi1if8tfa" path="res://Assets/Player/_Dash.png" id="12_sweqm"]
-[ext_resource type="Texture2D" uid="uid://ds547ltqlqin2" path="res://Assets/Player/_Death.png" id="13_ph33w"]
-[ext_resource type="Texture2D" uid="uid://fjyrvlo0fkb7" path="res://Assets/Player/_DeathNoMovement.png" id="14_7ldla"]
-[ext_resource type="Texture2D" uid="uid://boudr13do8xn5" path="res://Assets/Player/_Fall.png" id="15_r7t2e"]
-[ext_resource type="Texture2D" uid="uid://bniv6yeryornt" path="res://Assets/Player/_Hit.png" id="16_nmr2m"]
-[ext_resource type="Texture2D" uid="uid://dwypjroiiige8" path="res://Assets/Player/_Idle.png" id="17_ax3m3"]
-[ext_resource type="Texture2D" uid="uid://5aypdgnmecvo" path="res://Assets/Player/_Jump.png" id="18_3vlem"]
-[ext_resource type="Texture2D" uid="uid://lneslqdlsq67" path="res://Assets/Player/_JumpFallInbetween.png" id="19_8eeqe"]
-[ext_resource type="Texture2D" uid="uid://wfo30uprkapo" path="res://Assets/Player/_Roll.png" id="20_5x828"]
-[ext_resource type="Texture2D" uid="uid://cxqx5x10lykdp" path="res://Assets/Player/_Run.png" id="21_c1k8q"]
-[ext_resource type="Texture2D" uid="uid://d2x85bnomn3mf" path="res://Assets/Player/_Slide.png" id="22_e6mvm"]
-[ext_resource type="Texture2D" uid="uid://xbo2c25lchcy" path="res://Assets/Player/_SlideFull.png" id="23_57lvd"]
-[ext_resource type="Texture2D" uid="uid://drwdiynubndxc" path="res://Assets/Player/_SlideTransitionEnd.png" id="24_ie7r7"]
-[ext_resource type="Texture2D" uid="uid://kvu5wim3w1eg" path="res://Assets/Player/_SlideTransitionStart.png" id="25_vq3lt"]
-[ext_resource type="Texture2D" uid="uid://cjsoeht4mnkpm" path="res://Assets/Player/_TurnAround.png" id="26_pukcj"]
-[ext_resource type="Texture2D" uid="uid://c1qs1h565bsao" path="res://Assets/Player/_WallClimb.png" id="27_1htnp"]
-[ext_resource type="Texture2D" uid="uid://dalqk0a8xiicn" path="res://Assets/Player/_WallClimbNoMovement.png" id="28_m376e"]
-[ext_resource type="Texture2D" uid="uid://bntjn0guactfq" path="res://Assets/Player/_WallHang.png" id="29_6b312"]
-[ext_resource type="Texture2D" uid="uid://btgbprf2nmasg" path="res://Assets/Player/_WallSlide.png" id="30_lisdf"]
+[ext_resource type="Texture2D" uid="uid://doyme6ufhw6rf" path="res://Assets/props_plants_buildings_etc/Player/_AttackComboNoMovement.png" id="5_yh6i2"]
+[ext_resource type="Texture2D" uid="uid://dxv05u3vxsr37" path="res://Assets/props_plants_buildings_etc/Player/_AttackNoMovement.png" id="6_nv4vc"]
+[ext_resource type="Texture2D" uid="uid://dq74lhqq4dra6" path="res://Assets/props_plants_buildings_etc/Player/_Crouch.png" id="7_8gxox"]
+[ext_resource type="Texture2D" uid="uid://dwd6gsvrarpdm" path="res://Assets/props_plants_buildings_etc/Player/_CrouchAttack.png" id="8_11gg7"]
+[ext_resource type="Texture2D" uid="uid://chnvsd24e7he8" path="res://Assets/props_plants_buildings_etc/Player/_CrouchFull.png" id="9_qpa8y"]
+[ext_resource type="Texture2D" uid="uid://b2cv4jb5xs4xy" path="res://Assets/props_plants_buildings_etc/Player/_CrouchTransition.png" id="10_sbwqj"]
+[ext_resource type="Texture2D" uid="uid://voryqfo5bu88" path="res://Assets/props_plants_buildings_etc/Player/_CrouchWalk.png" id="11_xwi16"]
+[ext_resource type="Texture2D" uid="uid://c620hi1if8tfa" path="res://Assets/props_plants_buildings_etc/Player/_Dash.png" id="12_sweqm"]
+[ext_resource type="Texture2D" uid="uid://ds547ltqlqin2" path="res://Assets/props_plants_buildings_etc/Player/_Death.png" id="13_ph33w"]
+[ext_resource type="Texture2D" uid="uid://fjyrvlo0fkb7" path="res://Assets/props_plants_buildings_etc/Player/_DeathNoMovement.png" id="14_7ldla"]
+[ext_resource type="Texture2D" uid="uid://boudr13do8xn5" path="res://Assets/props_plants_buildings_etc/Player/_Fall.png" id="15_r7t2e"]
+[ext_resource type="Texture2D" uid="uid://bniv6yeryornt" path="res://Assets/props_plants_buildings_etc/Player/_Hit.png" id="16_nmr2m"]
+[ext_resource type="Texture2D" uid="uid://dwypjroiiige8" path="res://Assets/props_plants_buildings_etc/Player/_Idle.png" id="17_ax3m3"]
+[ext_resource type="Texture2D" uid="uid://5aypdgnmecvo" path="res://Assets/props_plants_buildings_etc/Player/_Jump.png" id="18_3vlem"]
+[ext_resource type="Texture2D" uid="uid://lneslqdlsq67" path="res://Assets/props_plants_buildings_etc/Player/_JumpFallInbetween.png" id="19_8eeqe"]
+[ext_resource type="Texture2D" uid="uid://wfo30uprkapo" path="res://Assets/props_plants_buildings_etc/Player/_Roll.png" id="20_5x828"]
+[ext_resource type="Texture2D" uid="uid://cxqx5x10lykdp" path="res://Assets/props_plants_buildings_etc/Player/_Run.png" id="21_c1k8q"]
+[ext_resource type="Texture2D" uid="uid://d2x85bnomn3mf" path="res://Assets/props_plants_buildings_etc/Player/_Slide.png" id="22_e6mvm"]
+[ext_resource type="Texture2D" uid="uid://xbo2c25lchcy" path="res://Assets/props_plants_buildings_etc/Player/_SlideFull.png" id="23_57lvd"]
+[ext_resource type="Texture2D" uid="uid://drwdiynubndxc" path="res://Assets/props_plants_buildings_etc/Player/_SlideTransitionEnd.png" id="24_ie7r7"]
+[ext_resource type="Texture2D" uid="uid://kvu5wim3w1eg" path="res://Assets/props_plants_buildings_etc/Player/_SlideTransitionStart.png" id="25_vq3lt"]
+[ext_resource type="Texture2D" uid="uid://cjsoeht4mnkpm" path="res://Assets/props_plants_buildings_etc/Player/_TurnAround.png" id="26_pukcj"]
+[ext_resource type="Texture2D" uid="uid://c1qs1h565bsao" path="res://Assets/props_plants_buildings_etc/Player/_WallClimb.png" id="27_1htnp"]
+[ext_resource type="Texture2D" uid="uid://dalqk0a8xiicn" path="res://Assets/props_plants_buildings_etc/Player/_WallClimbNoMovement.png" id="28_m376e"]
+[ext_resource type="Texture2D" uid="uid://bntjn0guactfq" path="res://Assets/props_plants_buildings_etc/Player/_WallHang.png" id="29_6b312"]
+[ext_resource type="Texture2D" uid="uid://btgbprf2nmasg" path="res://Assets/props_plants_buildings_etc/Player/_WallSlide.png" id="30_lisdf"]
 [ext_resource type="Script" uid="uid://dwdjijsm4378l" path="res://Scripts/Components/Movement/SimpleMovement_Component.gd" id="32_wohnl"]
 [ext_resource type="Script" uid="uid://n3qiv85d0ygh" path="res://Scripts/Components/HealthComponent.gd" id="33_nv4vc"]
 [ext_resource type="Script" uid="uid://wfrb6s4dedul" path="res://Scripts/Components/CharacterAnimationComponent.gd" id="34_8gxox"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" uid="uid://tq3lioir71b6" path="res://Scripts/Recources/AttackData.gd" id="38_qpa8y"]
 [ext_resource type="Script" uid="uid://d3hfg1k3sojj1" path="res://Scripts/Components/HitBoxComponent.gd" id="39_sbwqj"]
 [ext_resource type="Script" uid="uid://c2u4h2l6w5g8x" path="res://Scripts/Components/HurtBoxComponent.gd" id="40_xwi16"]
+[ext_resource type="PackedScene" uid="uid://5i8nwlo5ax30" path="res://temp/shader_scene/canvas_layer.tscn" id="41_sweqm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clpr6"]
 height = 36.0
@@ -1353,7 +1354,7 @@ sprite_frames = SubResource("SpriteFrames_350sb")
 animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1167977920]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 process_callback = 0
 limit_left = 0
 limit_top = 0
@@ -1414,4 +1415,8 @@ disabled = true
 [node name="SimpleMovementComponent" type="Node" parent="." unique_id=2130845947 node_paths=PackedStringArray("body")]
 script = ExtResource("32_wohnl")
 body = NodePath("..")
+movement_speed = 250.0
+crouch_speed = 100.0
 metadata/_custom_type_script = "uid://dwdjijsm4378l"
+
+[node name="CanvasLayer" parent="." unique_id=1425081077 instance=ExtResource("41_sweqm")]

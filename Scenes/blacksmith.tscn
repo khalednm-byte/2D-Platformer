@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bdxwgbef3fikl"]
+
+[ext_resource type="Script" uid="uid://dm2c2xd1ihouq" path="res://Scripts/Interactables/blacksmith.gd" id="1_6adbh"]
+[ext_resource type="Texture2D" uid="uid://bitwdiar2w1v5" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0001.png" id="1_qif77"]
+[ext_resource type="Texture2D" uid="uid://djuvyeya17pva" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0002.png" id="2_f8ast"]
+[ext_resource type="Texture2D" uid="uid://b154lber8efce" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0003.png" id="3_6adbh"]
+[ext_resource type="Texture2D" uid="uid://b3ty5gq1o5348" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0004.png" id="4_6btc5"]
+[ext_resource type="Texture2D" uid="uid://ciqrydw3kdudm" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0005.png" id="5_fj1ib"]
+[ext_resource type="Texture2D" uid="uid://b3nybdc0btce" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0006.png" id="6_iujpy"]
+[ext_resource type="Texture2D" uid="uid://du8klhltr0v4y" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0007.png" id="7_28jam"]
+[ext_resource type="Texture2D" uid="uid://cuj7qhelh7g8n" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0008.png" id="8_0wq2w"]
+[ext_resource type="Texture2D" uid="uid://brvkbiaomkfu6" path="res://Assets/props_plants_buildings_etc/blacksmith/idle/blacksmith_idle_0009.png" id="9_wg87r"]
+[ext_resource type="Script" uid="uid://dhm5ffwdvc0d4" path="res://Scripts/Components/interactions/InteractionComponent.gd" id="10_f8ast"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mypjb"]
+size = Vector2(74, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mypjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qif77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f8ast")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6adbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6btc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fj1ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iujpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_28jam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0wq2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wg87r")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Blacksmith" type="Node2D" unique_id=1494163714 node_paths=PackedStringArray("interaction_component")]
+script = ExtResource("1_6adbh")
+interaction_component = NodePath("InteractableComponent")
+
+[node name="InteractableComponent" type="Area2D" parent="." unique_id=2081387977]
+script = ExtResource("10_f8ast")
+display_name = "Father"
+action_text = "talk to"
+interaction_priority = 5
+allow_sprite_flip = true
+metadata/_custom_type_script = "uid://dhm5ffwdvc0d4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=2084906854]
+position = Vector2(0, -28.5)
+shape = SubResource("RectangleShape2D_mypjb")
+debug_color = Color(0.23921569, 0.50980395, 1, 0.41960785)
+
+[node name="VisualPivot" type="Node2D" parent="." unique_id=201254205]
+scale = Vector2(-1, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot" unique_id=1471915938]
+position = Vector2(0, -19)
+scale = Vector2(0.702, 0.702)
+sprite_frames = SubResource("SpriteFrames_mypjb")
+animation = &"idle"
+frame_progress = 0.39313015

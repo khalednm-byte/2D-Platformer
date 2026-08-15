@@ -13,14 +13,9 @@
 			"tasks": [
 				"213fa2c5-138d-4ffe-8a8d-588565503902",
 				"7ac0c803-9a85-4665-8a00-063480c38b16",
-				"904322c0-a363-4b23-bd1d-27237bf3c365",
 				"dd1e651f-3320-4874-bd5d-e5a7411d6b7d",
-				"22600a97-0236-40a3-801d-207b1292f97e",
-				"18a6494c-7c79-4ef5-8522-f157d947a063",
-				"4d510979-b33b-4ef7-9450-d4339a178a22",
-				"7225d071-14d0-46ed-b66c-47cab1bec4e9",
-				"bd1873aa-7bd4-49cf-a335-eb063e3626c3",
-				"0fe71a4e-dcd8-479e-bcf3-ad19f348ba9c"
+				"0fe71a4e-dcd8-479e-bcf3-ad19f348ba9c",
+				"d789fe2e-589a-4429-b97d-d55d84012010"
 			]
 		},
 		{
@@ -33,7 +28,14 @@
 		{
 			"uuid": "987bdab8-2f12-4614-8638-ece38b50640d",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"18a6494c-7c79-4ef5-8522-f157d947a063",
+				"4d510979-b33b-4ef7-9450-d4339a178a22",
+				"7225d071-14d0-46ed-b66c-47cab1bec4e9",
+				"904322c0-a363-4b23-bd1d-27237bf3c365",
+				"22600a97-0236-40a3-801d-207b1292f97e",
+				"bd1873aa-7bd4-49cf-a335-eb063e3626c3"
+			]
 		}
 	],
 	"tasks": [
@@ -87,15 +89,15 @@
 			"steps": [
 				{
 					"details": "Define a common interaction interface or base class.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Track interactables entering and leaving range.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Call interact() when the Interact action is pressed.",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -124,6 +126,13 @@
 			"uuid": "0fe71a4e-dcd8-479e-bcf3-ad19f348ba9c",
 			"title": "Clean development diagnostics",
 			"description": "Remove obsolete debug prints, unused constants, commented diagnostics, and whitespace warnings once the related systems are verified.",
+			"category": "9c0a498a-5891-494c-819f-d9491a016965",
+			"steps": []
+		},
+		{
+			"uuid": "d789fe2e-589a-4429-b97d-d55d84012010",
+			"title": "Add a setting where the player could disable the CRT shader effect",
+			"description": "",
 			"category": "9c0a498a-5891-494c-819f-d9491a016965",
 			"steps": []
 		}

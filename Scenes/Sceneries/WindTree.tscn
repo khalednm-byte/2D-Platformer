@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" uid="uid://fp4a1j6wuluw" path="res://Assets/environment/FreePlatformerNA/Foreground/Trees.png" id="1_trees"]
+[ext_resource type="Material" path="res://Shaders/Wind Sway Effect/tree_wind_material.tres" id="2_wind"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tree"]
+atlas = ExtResource("1_trees")
+region = Rect2(0, 0, 128, 128)
+
+[node name="WindTree" type="Node2D"]
+
+[node name="Tree" type="Sprite2D" parent="."]
+texture_filter = 1
+material = ExtResource("2_wind")
+texture = SubResource("AtlasTexture_tree")
+
