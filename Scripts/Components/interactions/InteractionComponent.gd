@@ -2,9 +2,11 @@
 extends Area2D
 class_name InteractableComponent
 
-signal interaction_requested(interactor: Node)
+signal interaction_requested(interactor: Node, active: bool)
 signal flip_parent_sprite(facing_direction: Vector2)
+signal body_exited_while_interacting(goto_interactable_position: Vector2)
 
+@export var parent: Interaction
 @export var display_name: String = "Object"
 @export var action_text: String = "Interact"
 @export var interaction_priority: int = 0
@@ -17,9 +19,13 @@ signal flip_parent_sprite(facing_direction: Vector2)
 		_refresh_availability()
 
 var nearby_player: Player
-
+var currently_interacting: bool
 
 func _ready() -> void:
+	if parent != null:
+		parent = get_parent() as Interaction
+	else:
+		push_error("Interaction component has no parent assigned on ", self.name, " at ", get_parent().name)
 	if not has_node("CollisionShape2D"):
 		push_error("Interaction Component on: ", get_parent().name, " has no collision bounds as child.")
 		return
@@ -37,15 +43,22 @@ func _on_body_exited(body: Node2D) -> void:
 		return
 	
 	nearby_player.unregister_interactable(self)
+	if currently_interacting:
+		body_exited_while_interacting.emit(global_position)
+		currently_interacting = false
+		nearby_player.switch_is_interacting(currently_interacting)
 	nearby_player = null
+
+func sprite_flip_logic_check(interactor: Node) -> void:
+	if allow_sprite_flip:
+		if interactor is Player:
+			flip_parent_sprite.emit(interactor.global_position)
 
 func interact(interactor: Node) -> bool:
 	if not enabled:
 		return false
 	
-	if allow_sprite_flip:
-		if interactor is Player:
-			flip_parent_sprite.emit(interactor.global_position)
+	sprite_flip_logic_check(interactor)
 	
 	interaction_requested.emit(interactor)
 	return true

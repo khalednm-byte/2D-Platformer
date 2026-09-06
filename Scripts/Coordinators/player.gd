@@ -27,6 +27,7 @@ enum Stance {
 @onready var low_collision: CollisionPolygon2D = $LowCollision
 @onready var crouch_collision: CollisionShape2D = $CrouchCollision
 @onready var head_clearance_check: ShapeCast2D = $HeadClearanceCheck
+@onready var dialogue_marker: DialogueMarker2D = $VisualPivot2D/DialogueMarker2D
 
 var current_stance: Stance = Stance.STANDING
 var is_turning: bool = false
@@ -43,8 +44,11 @@ var low_polygon_left: PackedVector2Array
 
 var nearby_interactables: Array[InteractableComponent]
 var current_interactable: InteractableComponent
+var is_interacting: bool = false
+
 
 func _ready() -> void:
+	add_to_group("dialogue_player")
 	movement_component.initialize(self)
 	combat_component.initialize(self)
 	hurtbox_component.initialize_collision_profiles(standing_collision, crouch_collision, low_collision)
@@ -141,6 +145,9 @@ func request_crouch() -> bool:
 	if current_stance != Stance.STANDING:
 		return false
 	
+	if is_interacting:
+		return false
+	
 	if not is_on_floor():
 		return false
 	
@@ -166,6 +173,9 @@ func request_attack() -> bool:
 		Stance.SLIDING,
 		Stance.EXITING_SLIDE
 	]:
+		return false
+	
+	if is_interacting:
 		return false
 	
 	return combat_component.request_attack(facing_direction, is_moving(), current_stance == Stance.CROUCHED)
@@ -199,6 +209,9 @@ func request_jump() -> bool:
 	if current_stance != Stance.STANDING:
 		return false
 	
+	if is_interacting: 
+		return false
+	
 	if jump_buffer_time_remaining <= 0.0:
 		return false
 	
@@ -219,6 +232,9 @@ func request_interaction() -> bool:
 	_update_current_interactable()
 	
 	if not is_instance_valid(current_interactable):
+		return false
+	
+	if is_moving():
 		return false
 	
 	return current_interactable.interact(self)
@@ -308,7 +324,6 @@ func _on_crouch_exit_finished() -> void:
 	movement_component.set_crouched(false)
 	movement_component.set_crouching(false)
 
-
 func _on_slide_enter_finished() -> void:
 	if current_stance != Stance.ENTERING_SLIDE:
 		return
@@ -380,8 +395,13 @@ func resolve_action_input(intent: CharacterIntent) -> bool:
 	
 	return false
 
+func switch_is_interacting(interacting: bool) -> void:
+	is_interacting = interacting
+	if is_interacting:
+		ui_component.hide_interaction_prompt()
+
 func _physics_process(delta: float) -> void:
-	#print("Current Stance: ", current_stance)
+	#print("Interacting: ", is_interacting)
 	
 	var intent := input_source.get_intent()
 	
@@ -396,7 +416,7 @@ func _physics_process(delta: float) -> void:
 		coyote_time_remaining = coyote_time_duration
 	
 	var action_started := resolve_action_input(intent)
-	if not action_started and not animation_component.is_locked() and _can_change_facing_direction():
+	if not action_started and not animation_component.is_locked() and _can_change_facing_direction() and not is_interacting:
 		update_facing_direction(intent.movement_direction)
 	
 	var adjusted_movement_direction := combat_component.get_movement_input(intent.movement_direction)
@@ -413,7 +433,7 @@ func _physics_process(delta: float) -> void:
 			# or reverse the player during slide transitions.
 			pass
 		_:
-			movement_component.update_horizontal_movement(adjusted_movement_direction, delta)
+			movement_component.update_horizontal_movement(adjusted_movement_direction, delta, is_interacting)
 	
 	movement_component.update_gravity(delta)
 	

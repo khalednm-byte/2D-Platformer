@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://n3qiv85d0ygh" path="res://Scripts/Components/HealthComponent.gd" id="33_nv4vc"]
 [ext_resource type="Script" uid="uid://wfrb6s4dedul" path="res://Scripts/Components/CharacterAnimationComponent.gd" id="34_8gxox"]
 [ext_resource type="Script" uid="uid://yeeli2bbmb5n" path="res://Scripts/Components/Input Sources/PlayerInputSource.gd" id="35_11gg7"]
+[ext_resource type="Script" uid="uid://cxge1wx70prau" path="res://addons/dialogue_manager/nodes/marker/dialogue_marker_2d.gd" id="36_ph33w"]
 [ext_resource type="Script" uid="uid://dwgwfnad2qx3g" path="res://Scripts/Components/CombatComponent.gd" id="37_11gg7"]
 [ext_resource type="Script" uid="uid://tq3lioir71b6" path="res://Scripts/Recources/AttackData.gd" id="38_qpa8y"]
 [ext_resource type="Script" uid="uid://d3hfg1k3sojj1" path="res://Scripts/Components/HitBoxComponent.gd" id="39_sbwqj"]
@@ -51,7 +52,7 @@ height = 28.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypfnu"]
 
-[sub_resource type="Resource" id="Resource_11gg7"]
+[sub_resource type="Resource" id="Resource_oo3ny"]
 script = ExtResource("5_8gxox")
 metadata/_custom_type_script = "uid://bg3jgifqlao7q"
 
@@ -1339,7 +1340,7 @@ script = ExtResource("33_nv4vc")
 
 [node name="AnimationComponent" type="Node2D" parent="." unique_id=1946625830 node_paths=PackedStringArray("animated_sprite", "visual_pivot")]
 script = ExtResource("34_8gxox")
-animation_set = SubResource("Resource_11gg7")
+animation_set = SubResource("Resource_oo3ny")
 animated_sprite = NodePath("../VisualPivot2D/AnimatedSprite2D")
 visual_pivot = NodePath("../VisualPivot2D")
 
@@ -1352,6 +1353,12 @@ script = ExtResource("35_11gg7")
 position = Vector2(5, -40)
 sprite_frames = SubResource("SpriteFrames_350sb")
 animation = &"Idle"
+
+[node name="DialogueMarker2D" type="Marker2D" parent="VisualPivot2D" unique_id=137849123]
+position = Vector2(-19, -34)
+script = ExtResource("36_ph33w")
+character_name = "Qaswar"
+metadata/_custom_type_script = "uid://cxge1wx70prau"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1167977920]
 zoom = Vector2(4, 4)

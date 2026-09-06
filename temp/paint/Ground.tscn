@@ -685,8 +685,8 @@ scale = Vector2(4, 4)
 tile_set = ExtResource("2_g3d76")
 
 [node name="DogHouse(1)" type="Sprite2D" parent="." unique_id=635467469]
-position = Vector2(1195, 593.00006)
-rotation = 3.1180785
+position = Vector2(1200, 598)
+rotation = 3.1427243
 scale = Vector2(-2, -2)
 texture = ExtResource("2_2brg5")
 

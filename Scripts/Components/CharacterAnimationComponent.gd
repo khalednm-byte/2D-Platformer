@@ -8,6 +8,7 @@ signal attack_finished
 signal turn_finished(new_direction: float)
 signal slide_enter_finished
 signal slide_exit_finished
+signal special_finished
 signal animation_frame_changed(animation_name: StringName, frame: int)
 
 @export var animation_set: CharacterAnimationSet
@@ -23,6 +24,7 @@ enum AnimationLock {
 	ATTACK,
 	SLIDE_IN,
 	SLIDE_OUT,
+	SPECIAL
 }
 
 
@@ -67,12 +69,8 @@ func _try_play_locked(lock_type: AnimationLock, animation_name: StringName) -> b
 	return true
 
 func try_play_turn(from_direction: float, to_direction: float) -> bool:
-	if is_locked():
-		return false
-	
 	pending_turn_direction = to_direction
 	set_facing_direction(from_direction)
-	
 	return _try_play_locked(AnimationLock.TURN, animation_set.turn)
 
 func try_play_crouch_enter() -> bool:
@@ -91,6 +89,10 @@ func try_play_slide_enter() -> bool:
 
 func try_play_slide_exit() -> bool:
 	return _try_play_locked(AnimationLock.SLIDE_OUT, animation_set.slide_exit)
+
+func try_play_special(animation_name: StringName) -> bool:
+	var animation_index = animation_set.Specials.find(animation_name)
+	return _try_play_locked(AnimationLock.SPECIAL, animation_set.Specials.get(animation_index))
 
 func update_locomotion(is_crouched: bool, is_on_floor: bool, is_sliding: bool,horizontal_velocity: float) -> void:
 	# Do not overwrite one-shot animations.
@@ -184,3 +186,5 @@ func _on_animation_finished() -> void:
 			
 		AnimationLock.SLIDE_OUT:
 			slide_exit_finished.emit()
+		AnimationLock.SPECIAL:
+			special_finished.emit() # unused for now

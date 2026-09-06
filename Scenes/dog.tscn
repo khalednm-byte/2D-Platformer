@@ -1,69 +1,70 @@
 [gd_scene format=3 uid="uid://37xoccb8yqd6"]
 
-[ext_resource type="Texture2D" uid="uid://bgp7lxrqjgokp" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0001.png" id="1_12smy"]
-[ext_resource type="Texture2D" uid="uid://nfnkvl7io3r5" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0001.png" id="1_k0nkm"]
-[ext_resource type="Texture2D" uid="uid://coce1by0yirnq" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0002.png" id="2_0swk1"]
-[ext_resource type="Texture2D" uid="uid://3kptxpnxhtvh" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0002.png" id="2_wkkfr"]
-[ext_resource type="Texture2D" uid="uid://bituyvk3exif2" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0003.png" id="3_2qe13"]
-[ext_resource type="Texture2D" uid="uid://uyphy06ggqse" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0003.png" id="3_pcryx"]
-[ext_resource type="Texture2D" uid="uid://24m7nf24hl81" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0004.png" id="4_1hqjs"]
-[ext_resource type="Texture2D" uid="uid://c26fd8dnkflps" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0004.png" id="4_llnvy"]
-[ext_resource type="Texture2D" uid="uid://bw1idptlntvps" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0005.png" id="5_dam1u"]
-[ext_resource type="Texture2D" uid="uid://cwxv0xexhxvt2" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0005.png" id="5_ws021"]
-[ext_resource type="Texture2D" uid="uid://bpi0m3t4pddtf" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0006.png" id="6_kcuxi"]
-[ext_resource type="Texture2D" uid="uid://cgmbjhoq83puu" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0006.png" id="6_qrdop"]
-[ext_resource type="Texture2D" uid="uid://eoeuevpyvtcj" path="res://Assets/characters by pixellab/Dog/Barking/DogBARKING_0007.png" id="7_f5fcd"]
-[ext_resource type="Texture2D" uid="uid://bghwf58d5l21s" path="res://Assets/characters by pixellab/Dog/Idle/DogIDLE_0007.png" id="7_sy2b1"]
+[ext_resource type="Script" uid="uid://snvej6tuts5v" path="res://Scripts/Interactables/dog.gd" id="1_0swk1"]
+[ext_resource type="Texture2D" uid="uid://cccflcwud7p5x" path="res://Assets/characters by pixellab/Dog/Idle/Idle_0001.png" id="1_6yb15"]
+[ext_resource type="Texture2D" uid="uid://dmw6q6thgnlcm" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0001.png" id="2_pcryx"]
+[ext_resource type="Texture2D" uid="uid://c68q2p35bc0ow" path="res://Assets/characters by pixellab/Dog/Idle/Idle_0002.png" id="2_usue5"]
+[ext_resource type="Texture2D" uid="uid://d4ng3c6lr2of" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0002.png" id="3_1hqjs"]
+[ext_resource type="Texture2D" uid="uid://c3dr8bonpx5a1" path="res://Assets/characters by pixellab/Dog/Idle/Idle_0003.png" id="3_12smy"]
+[ext_resource type="Texture2D" uid="uid://bxh1iid0fp8un" path="res://Assets/characters by pixellab/Dog/Idle/Idle_0004.png" id="4_wkkfr"]
+[ext_resource type="Texture2D" uid="uid://1ujs48w0clk5" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0003.png" id="4_ws021"]
+[ext_resource type="Texture2D" uid="uid://dcmtnv25udej" path="res://Assets/characters by pixellab/Dog/Idle/Idle_0005.png" id="5_2qe13"]
+[ext_resource type="Texture2D" uid="uid://npedh7vwq7xm" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0004.png" id="5_qrdop"]
+[ext_resource type="Texture2D" uid="uid://bxhg7ixkltuwy" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0005.png" id="6_f5fcd"]
+[ext_resource type="Texture2D" uid="uid://r6kb7xdgk5ko" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0006.png" id="7_k54ei"]
+[ext_resource type="Texture2D" uid="uid://dawimvreoumja" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0007.png" id="8_g6oel"]
+[ext_resource type="Texture2D" uid="uid://b5nnbnlwr6s6p" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0008.png" id="9_633se"]
+[ext_resource type="Texture2D" uid="uid://b5hyxd0og6ull" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0009.png" id="10_sndxk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mypjb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_k0nkm")
+"texture": ExtResource("2_pcryx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_0swk1")
+"texture": ExtResource("3_1hqjs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pcryx")
+"texture": ExtResource("4_ws021")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_qrdop")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_f5fcd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_1hqjs")
+"texture": ExtResource("7_k54ei")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ws021")
+"texture": ExtResource("8_g6oel")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_qrdop")
+"texture": ExtResource("9_633se")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_f5fcd")
+"texture": ExtResource("10_sndxk")
 }],
-"loop": 1,
-"name": &"Baking",
-"speed": 5.0
+"loop": 2,
+"name": &"Barking",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_12smy")
+"texture": ExtResource("1_6yb15")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_wkkfr")
+"texture": ExtResource("2_usue5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2qe13")
+"texture": ExtResource("3_12smy")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_wkkfr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_llnvy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_dam1u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_kcuxi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_sy2b1")
+"texture": ExtResource("5_2qe13")
 }],
 "loop": 1,
 "name": &"Idle",
@@ -71,9 +72,12 @@ animations = [{
 }]
 
 [node name="Dog" type="Node2D" unique_id=1198311174]
+script = ExtResource("1_0swk1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1490162423]
-position = Vector2(0, -26)
+position = Vector2(0, -15.000001)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_mypjb")
-animation = &"Baking"
-frame_progress = 0.13402909
+animation = &"Barking"
+frame = 4
+frame_progress = 0.14516027

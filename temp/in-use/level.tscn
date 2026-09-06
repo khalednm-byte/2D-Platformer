@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tdunfdfkrpry" path="res://Scenes/particles/AirParticles.tscn" id="5_air_particles"]
 [ext_resource type="PackedScene" uid="uid://bdxwgbef3fikl" path="res://Scenes/blacksmith.tscn" id="5_f8s8q"]
 [ext_resource type="PackedScene" uid="uid://bp0cdl6pxpevt" path="res://Scenes/UI/player_ui.tscn" id="7_f8s8q"]
+[ext_resource type="PackedScene" uid="uid://37xoccb8yqd6" path="res://Scenes/dog.tscn" id="8_jymwg"]
 
 [sub_resource type="Gradient" id="Gradient_p17j8"]
 offsets = PackedFloat32Array(0, 0.49646643, 1)
@@ -69,7 +70,7 @@ position = Vector2(271.00003, 577.00006)
 scale = Vector2(0.40531853, 0.40531853)
 
 [node name="Blacksmith" parent="." unique_id=1494163714 instance=ExtResource("5_f8s8q")]
-position = Vector2(455, 578)
+position = Vector2(711, 578)
 
 [node name="Player" parent="." unique_id=604404683 node_paths=PackedStringArray("ui_component") instance=ExtResource("3_6en7d")]
 position = Vector2(-105, 547)
@@ -88,3 +89,6 @@ randomness = 1.0
 trail_enabled = true
 trail_lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_fteil")
+
+[node name="Dog" parent="." unique_id=1198311174 instance=ExtResource("8_jymwg")]
+position = Vector2(887, 580)

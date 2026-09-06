@@ -20,6 +20,6 @@ class_name CharacterAnimationSet
 @export var slide_loop: StringName = &"Slide"
 @export var slide_exit: StringName = &"SlideOut"
 
-@export_category("Other")
+@export_category("Special")
 @export var turn: StringName = &"TurnAround"
-@export var roll: StringName = &"Roll"
+@export var Specials: Array[StringName] ## One shot special animations

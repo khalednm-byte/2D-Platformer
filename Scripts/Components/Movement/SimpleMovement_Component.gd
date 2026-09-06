@@ -42,7 +42,10 @@ func set_crouched(is_crouched: bool) -> void:
 func set_crouching(is_crouching: bool) -> void:
 	crouching = is_crouching
 
-func update_horizontal_movement(direction: float, delta: float) -> void:
+func update_horizontal_movement(direction: float, delta: float, is_interacting: bool) -> void:
+	if is_interacting: 
+		body.velocity.x = 0.0
+		return
 	var normalized_direction := clampf(direction, -1.0, 1.0)
 	
 	var active_speed := current_crouch_speed if crouched else current_movement_speed
@@ -54,7 +57,6 @@ func update_horizontal_movement(direction: float, delta: float) -> void:
 		var rate := ground_acceleration if direction != 0.0 else ground_deceleration
 		
 		if crouching:
-			#print("Am I stuck?")
 			body.velocity.x = move_toward(body.velocity.x, 0.0, 3000 * delta)
 			return
 		
@@ -84,7 +86,6 @@ func can_start_slide() -> bool:
 
 func start_slide() -> bool:
 	if not can_start_slide():
-		#print("Start Sliding: ", can_start_slide())
 		return false
 	
 	slide_direction = signf(body.velocity.x)

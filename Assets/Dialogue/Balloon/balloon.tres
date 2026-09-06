@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://c5mwjo6spxdnu"]
+
+[ext_resource type="Texture2D" uid="uid://be2nme2svnfnp" path="res://Assets/Dialogue/Balloon/balloon_bubble_panel.png" id="1_l0po4"]
+
+[resource]
+texture = ExtResource("1_l0po4")
+region_rect = Rect2(0, 0, 64, 64)
