@@ -1,5 +1,18 @@
 ~ start
-Father: Qaswar!
+if Father.has_met_player:
+	if Father.is_angry: 
+		 Father: Go to your mother.. before I lose my mind.
+		=> END
+	elif Father.is_happy: 
+		Qaswar: I love you father.
+		Father: I love you too son.
+		=> END
+	else:
+		Father: your mother is waiting.
+		=> END
+else:
+	Father: Qaswar!
+
 
 Qaswar: Father.
 
@@ -23,6 +36,19 @@ Father: Good.
 Father: Now go. Your mother has been waiting for you.
 Father: Let her know you're home safely.
 
-Qaswar: I will, Father.
+- I will father
+	if Father.is_angry: 
+		Father: being disrespectful earlier didn't help, did it?
+		$> Father.is_angry = false
+	$> Father.is_happy = true
+	Father: bye
+- Sike
+	if Father.is_happy: 
+		Father: what is wrong with you?
+		$> Father.is_happy = false
+	$> Father.is_angry = true
+	Father: fuck off
 
+$> Father.has_met_player = true
+$> ProgressManager.complete((Anvil.TALK_TO_FATHER))
 => END

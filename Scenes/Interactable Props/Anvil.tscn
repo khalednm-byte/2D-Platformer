@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://chxhmbsuanqmp" path="res://Scripts/Components/ProgressRequirementComponent.gd" id="3_y3y6x"]
 [ext_resource type="Script" uid="uid://dhm5ffwdvc0d4" path="res://Scripts/Components/interactions/InteractionComponent.gd" id="4_8xwwp"]
 [ext_resource type="PackedScene" uid="uid://dii70tpby20ml" path="res://Scenes/UI/anvil_ui.tscn" id="5_fuiob"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="6_n4sq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mypjb"]
 size = Vector2(172, 98)
@@ -37,3 +38,9 @@ shape = SubResource("RectangleShape2D_mypjb")
 debug_color = Color(0.2373792, 0.50797164, 1, 0.41960785)
 
 [node name="AnvilUI" parent="." unique_id=954614421 instance=ExtResource("5_fuiob")]
+
+[node name="DialogueStateContext" type="Node" parent="." unique_id=187744634 node_paths=PackedStringArray("target")]
+script = ExtResource("6_n4sq7")
+alias = "Anvil"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"

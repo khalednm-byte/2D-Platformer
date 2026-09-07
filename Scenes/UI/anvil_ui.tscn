@@ -26,12 +26,12 @@ label_settings = SubResource("LabelSettings_mypjb")
 
 [node name="LockedMessage" type="Label" parent="." unique_id=1781618040]
 visible = false
-offset_left = 688.0
-offset_top = 464.0
-offset_right = 1265.0
-offset_bottom = 525.0
+offset_left = 608.0
+offset_top = 496.0
+offset_right = 1321.0
+offset_bottom = 557.0
 theme_override_fonts/font = ExtResource("2_fvd8l")
-text = "You Need the hammer first!"
+text = "You need to speak to father first!"
 label_settings = SubResource("LabelSettings_fvd8l")
 
 [node name="Timer" type="Timer" parent="LockedMessage" unique_id=1008502762]

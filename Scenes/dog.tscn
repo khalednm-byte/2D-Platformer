@@ -74,7 +74,9 @@ animations = [{
 [node name="Dog" type="Node2D" unique_id=1198311174]
 script = ExtResource("1_0swk1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1490162423]
+[node name="VisualPivot2D" type="Node2D" parent="." unique_id=1826990535]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1490162423]
 position = Vector2(0, -15.000001)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_mypjb")
