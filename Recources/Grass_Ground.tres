@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://b6ejakxcbrrul"]
 
-[ext_resource type="Texture2D" uid="uid://b3rw6rfaap1vv" path="res://Assets/props_plants_buildings_etc/environment/ground/Assets.png" id="1_5eufm"]
-[ext_resource type="Texture2D" uid="uid://do46ft8iiqycn" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/1_Tileset & props/Country_village_props.png" id="2_42ewr"]
+[ext_resource type="Texture2D" uid="uid://b3rw6rfaap1vv" path="res://Assets/PropsPlantsBuildingsEtc/environment/ground/Assets.png" id="1_5eufm"]
+[ext_resource type="Texture2D" uid="uid://do46ft8iiqycn" path="res://Assets/PropsPlantsBuildingsEtc/Country-village_asset_pack/1_Tileset & props/Country_village_props.png" id="2_42ewr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5eufm"]
 texture = ExtResource("1_5eufm")

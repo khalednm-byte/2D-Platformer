@@ -6,8 +6,9 @@
 [ext_resource type="TileSet" uid="uid://3jb6fuaqmoey" path="res://Recources/props.tres" id="2_g3d76"]
 [ext_resource type="Material" uid="uid://b204w3quuminy" path="res://Shaders/Wind Sway Effect/tree_wind_material.tres" id="3_jb2qy"]
 [ext_resource type="Material" uid="uid://bcja65k2gx8kf" path="res://Shaders/Wind Sway Effect/plant_wind_material.tres" id="3_plant_wind"]
-[ext_resource type="Texture2D" uid="uid://do46ft8iiqycn" path="res://Assets/props_plants_buildings_etc/Country-village_asset_pack/1_Tileset & props/Country_village_props.png" id="4_fqm7i"]
-[ext_resource type="Texture2D" uid="uid://bdy5feroqauc6" path="res://Assets/props_plants_buildings_etc/environment/GothicVania-town-files/PNG/environment/props-sliced/wagon.png" id="5_enx1j"]
+[ext_resource type="Texture2D" uid="uid://do46ft8iiqycn" path="res://Assets/PropsPlantsBuildingsEtc/Country-village_asset_pack/1_Tileset & props/Country_village_props.png" id="4_fqm7i"]
+[ext_resource type="Texture2D" uid="uid://bdy5feroqauc6" path="res://Assets/PropsPlantsBuildingsEtc/environment/GothicVania-town-files/PNG/environment/props-sliced/wagon.png" id="5_enx1j"]
+[ext_resource type="AudioStream" uid="uid://bmqjfs4ur4cds" path="res://Assets/Sounds/AmbientSounds/eryliaa-forest-wind-with-birds-singing-364368.mp3" id="9_423pm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g3d76"]
 load_path = "res://.godot/imported/Assets.png-3cbee0a33a0ae5276eae3d626db2bfaa.ctex"
@@ -754,6 +755,10 @@ material = ExtResource("3_plant_wind")
 scale = Vector2(3.6, 3.6)
 tile_map_data = PackedByteArray("AAAIAAoAAAAPAAEAAAAJAAoAAQAFAAsAAAAKAAoAAQAGAAsAAAAHAAoAAAAOAAEAAAAFAAoAAAANAAIAAAAPAAoAAAANAAEAAAAQAAoAAAAOAAEAAAARAAoAAAAPAAEAAAAHAAcAAAAMAAoAAAAFAAgAAAAMAAoAAAASAAcAAAAMAAoAAAATAAYAAAAMAAoAAAATAAkAAAAMAAoAAAAOAAYAAAAMAAoAAAAQAAgAAAAMAAoAAAATAAoAAQAEAAsAAAA=")
 tile_set = ExtResource("1_enx1j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plants2" unique_id=1728391328]
+stream = ExtResource("9_423pm")
+autoplay = true
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=411622887]
 texture_filter = 1

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b8jw1vqyku4nw"]
 
 [ext_resource type="Script" uid="uid://bu1i24pfibj8" path="res://Scripts/Interactables/anvil.gd" id="1_cc2dw"]
-[ext_resource type="Texture2D" uid="uid://dcnc3rvw2ltaa" path="res://Assets/props_plants_buildings_etc/pixellab/Anvil.png" id="1_fexgj"]
+[ext_resource type="Texture2D" uid="uid://dcnc3rvw2ltaa" path="res://Assets/PropsPlantsBuildingsEtc/pixellab/Anvil.png" id="1_fexgj"]
+[ext_resource type="Resource" uid="uid://b6fb83cdpx2f8" path="res://Dialogues/Dialogue Ballons/Dialogues/first_time_anvil.dialogue" id="2_kt37m"]
 [ext_resource type="Script" uid="uid://chxhmbsuanqmp" path="res://Scripts/Components/ProgressRequirementComponent.gd" id="3_y3y6x"]
 [ext_resource type="Script" uid="uid://dhm5ffwdvc0d4" path="res://Scripts/Components/interactions/InteractionComponent.gd" id="4_8xwwp"]
 [ext_resource type="PackedScene" uid="uid://dii70tpby20ml" path="res://Scenes/UI/anvil_ui.tscn" id="5_fuiob"]
@@ -15,6 +16,7 @@ script = ExtResource("1_cc2dw")
 progress_requirement = NodePath("ProgressRequirementComponent")
 ui_component = NodePath("AnvilUI")
 interaction_component = NodePath("InteractionComponent")
+dialogue_resource = ExtResource("2_kt37m")
 
 [node name="Anvil" type="Sprite2D" parent="." unique_id=522651668]
 position = Vector2(0, -29)
@@ -23,6 +25,7 @@ texture = ExtResource("1_fexgj")
 
 [node name="ProgressRequirementComponent" type="Node" parent="." unique_id=738330561]
 script = ExtResource("3_y3y6x")
+required_flags = Array[StringName]([&"Talk_to_father"])
 metadata/_custom_type_script = "uid://chxhmbsuanqmp"
 
 [node name="InteractionComponent" type="Area2D" parent="." unique_id=383580043 node_paths=PackedStringArray("parent")]

@@ -10,6 +10,7 @@ enum Stance {
 	SLIDING,
 	EXITING_SLIDE
 }
+
 @export_category("UI Component")
 @export var ui_component: PlayerUI
 @export_category("Gameplay Components")
@@ -21,6 +22,7 @@ enum Stance {
 @export_category("Tweeks")
 @export var jump_buffer_duration: float = 0.12
 @export var coyote_time_duration := 0.10
+@export var post_dialogue_input_delay: float = 0.15
 @export var moving_attack_threshold: float = 20.0
 
 @onready var standing_collision: CollisionShape2D = $StandingCollision
@@ -38,6 +40,7 @@ var turn_animation_min_speed: float: ## the minimum speed where the player must 
 		return movement_component.crouch_speed + 10.0 
 var jump_buffer_time_remaining: float = 0.0
 var coyote_time_remaining := 0.0
+var input_lock_time_remaining: float = 0.0
 # a copy of slide collision x,y points to select according to player's movement direction
 var low_polygon_right: PackedVector2Array
 var low_polygon_left: PackedVector2Array
@@ -399,23 +402,33 @@ func switch_is_interacting(interacting: bool) -> void:
 	is_interacting = interacting
 	if is_interacting:
 		ui_component.hide_interaction_prompt()
+		return
+	
+	# Dialogue/UI just released control. Do not consume that same input as gameplay.
+	input_lock_time_remaining = post_dialogue_input_delay
+	jump_buffer_time_remaining = 0.0
 
 func _physics_process(delta: float) -> void:
 	#print("Interacting: ", is_interacting)
-	
 	var intent := input_source.get_intent()
+	
+	input_lock_time_remaining = maxf(input_lock_time_remaining - delta, 0.0)
 	
 	jump_buffer_time_remaining = maxf(jump_buffer_time_remaining - delta, 0.0)
 	
 	coyote_time_remaining = maxf(coyote_time_remaining - delta, 0.0)
 	
-	if intent.jump_pressed:
+	
+	if input_lock_time_remaining <= 0.0 and intent.jump_pressed:
 		jump_buffer_time_remaining = jump_buffer_duration
 	
 	if is_on_floor():
 		coyote_time_remaining = coyote_time_duration
 	
-	var action_started := resolve_action_input(intent)
+	var action_started := false
+	if input_lock_time_remaining <= 0.0:
+		action_started = resolve_action_input(intent)
+	
 	if not action_started and not animation_component.is_locked() and _can_change_facing_direction() and not is_interacting:
 		update_facing_direction(intent.movement_direction)
 	

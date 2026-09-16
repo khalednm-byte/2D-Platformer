@@ -92,6 +92,8 @@ func try_play_slide_exit() -> bool:
 
 func try_play_special(animation_name: StringName) -> bool:
 	var animation_index = animation_set.Specials.find(animation_name)
+	if animation_index == -1:
+		return false
 	return _try_play_locked(AnimationLock.SPECIAL, animation_set.Specials.get(animation_index))
 
 func update_locomotion(is_crouched: bool, is_on_floor: bool, is_sliding: bool,horizontal_velocity: float) -> void:

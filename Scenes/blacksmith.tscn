@@ -16,9 +16,32 @@
 [ext_resource type="Texture2D" uid="uid://cplqevqlnltki" path="res://Assets/characters by pixellab/Oldman/Idle/Idle_0004.png" id="13_eq8cv"]
 [ext_resource type="Texture2D" uid="uid://cdfn1v2e4ax4y" path="res://Assets/characters by pixellab/Oldman/Idle/Idle_0005.png" id="14_s7cny"]
 [ext_resource type="Script" uid="uid://cxge1wx70prau" path="res://addons/dialogue_manager/nodes/marker/dialogue_marker_2d.gd" id="16_0wq2w"]
+[ext_resource type="Texture2D" uid="uid://dg7l12iwdrnkm" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0001.png" id="16_woayy"]
+[ext_resource type="Texture2D" uid="uid://ckpflhh2vdnwl" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0002.png" id="17_8x3xr"]
 [ext_resource type="Script" uid="uid://wfrb6s4dedul" path="res://Scripts/Components/CharacterAnimationComponent.gd" id="17_oo3ny"]
+[ext_resource type="Texture2D" uid="uid://c7cuy5t4qrw6u" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0003.png" id="18_0p2t3"]
 [ext_resource type="Script" uid="uid://bg3jgifqlao7q" path="res://Scripts/Recources/AnimationSets.gd" id="18_e6bcr"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="19_e6bcr"]
+[ext_resource type="Texture2D" uid="uid://cd15m7dqoaip1" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0004.png" id="19_jowuh"]
+[ext_resource type="Texture2D" uid="uid://bcpwmbqm6xebl" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0005.png" id="20_kcqb0"]
+[ext_resource type="Texture2D" uid="uid://bjuu868bgak1t" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0006.png" id="21_hn1hr"]
+[ext_resource type="Texture2D" uid="uid://bnk84qh42fdeb" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0007.png" id="22_76cby"]
+[ext_resource type="Texture2D" uid="uid://bpdcq2n65tmwh" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0008.png" id="23_w3xy5"]
+[ext_resource type="Texture2D" uid="uid://cdym2pscxpiyr" path="res://Assets/characters by pixellab/Oldman/sitting/dialogue/sitting_dialogue_0009.png" id="24_j8ty1"]
+[ext_resource type="Texture2D" uid="uid://brvaj3urvx5a4" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0001.png" id="25_mylki"]
+[ext_resource type="Texture2D" uid="uid://b3ynv12qvqwq2" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0002.png" id="26_e2fdj"]
+[ext_resource type="Texture2D" uid="uid://cmdih267gnwm8" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0003.png" id="27_cumy6"]
+[ext_resource type="Texture2D" uid="uid://whgy1wt6g5bn" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0004.png" id="28_k88l1"]
+[ext_resource type="Texture2D" uid="uid://cokoui52nvhyf" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0005.png" id="29_aoat5"]
+[ext_resource type="Texture2D" uid="uid://fsnqnsuph428" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0006.png" id="30_qg2nd"]
+[ext_resource type="Texture2D" uid="uid://h2igb4d3kpf5" path="res://Assets/characters by pixellab/Oldman/sitting/Idle/Sitting_idle_withglasses_0007.png" id="31_vyb18"]
+[ext_resource type="Texture2D" uid="uid://w5ulnxoufilj" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0001.png" id="39_7hlnv"]
+[ext_resource type="Texture2D" uid="uid://byus5m4c83vvm" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0002.png" id="40_ragtk"]
+[ext_resource type="Texture2D" uid="uid://cash2o50osu3y" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0003.png" id="41_a876t"]
+[ext_resource type="Texture2D" uid="uid://bx6ldoiqrbyvt" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0004.png" id="42_2ul82"]
+[ext_resource type="Texture2D" uid="uid://cmjbsywtlqq34" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0005.png" id="43_5jxc8"]
+[ext_resource type="Texture2D" uid="uid://db57bryjfc58h" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0006.png" id="44_ig2yl"]
+[ext_resource type="Texture2D" uid="uid://5ncagx4tf1lw" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0007.png" id="45_4v043"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mypjb"]
 size = Vector2(74, 57)
@@ -79,11 +102,95 @@ animations = [{
 "loop": 1,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_woayy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8x3xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0p2t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jowuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_kcqb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hn1hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_76cby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_w3xy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_j8ty1")
+}],
+"loop": 0,
+"name": &"Sitting_Dialogue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_mylki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_e2fdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cumy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_k88l1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_aoat5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qg2nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vyb18")
+}],
+"loop": 1,
+"name": &"Sitting_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_7hlnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ragtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_a876t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_2ul82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_5jxc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_ig2yl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_4v043")
+}],
+"loop": 0,
+"name": &"Sitting_Stomp",
+"speed": 5.0
 }]
 
 [sub_resource type="Resource" id="Resource_mypjb"]
 script = ExtResource("18_e6bcr")
-Specials = Array[StringName]([&"Fixing_Glasses"])
+Specials = Array[StringName]([&"Fixing_Glasses", &"Sitting_Dialogue"])
 metadata/_custom_type_script = "uid://bg3jgifqlao7q"
 
 [node name="Blacksmith" type="Node2D" unique_id=1494163714 node_paths=PackedStringArray("interaction_component", "animation_component")]
@@ -110,9 +217,10 @@ debug_color = Color(0.23921569, 0.50980395, 1, 0.41960785)
 scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot" unique_id=1936546560]
-position = Vector2(4, -28)
+position = Vector2(2.3841858e-07, -27.5)
 sprite_frames = SubResource("SpriteFrames_d4f64")
-animation = &"Idle"
+animation = &"Sitting_Stomp"
+offset = Vector2(1.5, 0)
 
 [node name="DialogueMarker2D" type="Marker2D" parent="VisualPivot" unique_id=171758224]
 position = Vector2(-28.749996, -46.25)

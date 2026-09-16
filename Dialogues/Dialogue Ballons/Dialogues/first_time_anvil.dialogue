@@ -1,0 +1,6 @@
+~ start
+if not Anvil.can_interact():
+	Qaswar: hmm..
+	Qaswar: I wonder where my father is at.
+	Qaswar: He rarely leaves the anvil at this time! => END
+=> END

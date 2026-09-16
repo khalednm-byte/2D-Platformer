@@ -14,6 +14,12 @@ font_size = 60
 [node name="AnvilUI" type="CanvasLayer" unique_id=954614421]
 script = ExtResource("1_5pfd6")
 
+[node name="AnvilUI" type="Control" parent="." unique_id=1757360275]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Forging" type="Label" parent="." unique_id=736978004]
 visible = false
 offset_left = 688.0

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b6fb83cdpx2f8"
+path="res://.godot/imported/first_time_anvil.dialogue-b907795fd3b7b9cd1a5e6bf811f1a772.tres"
+
+[deps]
+
+source_file="res://Dialogues/Dialogue Ballons/Dialogues/first_time_anvil.dialogue"
+dest_files=["res://.godot/imported/first_time_anvil.dialogue-b907795fd3b7b9cd1a5e6bf811f1a772.tres"]
+
+[params]
+
+defaults=true

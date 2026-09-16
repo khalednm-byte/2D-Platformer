@@ -15,6 +15,26 @@
 [ext_resource type="Texture2D" uid="uid://dawimvreoumja" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0007.png" id="8_g6oel"]
 [ext_resource type="Texture2D" uid="uid://b5nnbnlwr6s6p" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0008.png" id="9_633se"]
 [ext_resource type="Texture2D" uid="uid://b5hyxd0og6ull" path="res://Assets/characters by pixellab/Dog/Barking/Barking_0009.png" id="10_sndxk"]
+[ext_resource type="Texture2D" uid="uid://chuj67k5ytthq" path="res://Assets/characters by pixellab/Dog/Sitting/SittingDown_0001.png" id="16_7gnfr"]
+[ext_resource type="AudioStream" uid="uid://d3gokebjh4nhd" path="res://Assets/Sounds/DogBarks/dragon-studio-dog-bark-382732.mp3" id="16_ws021"]
+[ext_resource type="Texture2D" uid="uid://blriw8xsbamij" path="res://Assets/characters by pixellab/Dog/Sitting/SittingDown_0002.png" id="17_57bt0"]
+[ext_resource type="AudioStream" uid="uid://bq62rkvbeebi7" path="res://Assets/Sounds/DogBarks/dragon-studio-dog-bark-effect-382711.mp3" id="17_qrdop"]
+[ext_resource type="Texture2D" uid="uid://b8ojr6k2ksqol" path="res://Assets/characters by pixellab/Dog/Sitting/SittingDown_0003.png" id="18_5v6pq"]
+[ext_resource type="AudioStream" uid="uid://c5ho45vit04at" path="res://Assets/Sounds/DogBarks/u_5wgfa0ekjt-dog-bark-179915.mp3" id="18_f5fcd"]
+[ext_resource type="Script" uid="uid://wfrb6s4dedul" path="res://Scripts/Components/CharacterAnimationComponent.gd" id="19_f5fcd"]
+[ext_resource type="Texture2D" uid="uid://dtkaxj1knylwv" path="res://Assets/characters by pixellab/Dog/Sitting/SittingDown_0004.png" id="19_gm7kn"]
+[ext_resource type="Script" uid="uid://bg3jgifqlao7q" path="res://Scripts/Recources/AnimationSets.gd" id="20_k54ei"]
+[ext_resource type="Texture2D" uid="uid://dt5mupv1tdb0d" path="res://Assets/characters by pixellab/Dog/Sitting/SittingDown_0005.png" id="20_liyc8"]
+[ext_resource type="Texture2D" uid="uid://cptex0v3mv68u" path="res://Assets/characters by pixellab/Dog/Sitting/SittingDown_0006.png" id="21_xea84"]
+[ext_resource type="Texture2D" uid="uid://civlnm47usgm4" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0001.png" id="22_vdj1n"]
+[ext_resource type="Texture2D" uid="uid://puo1cbvd4yby" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0002.png" id="23_fhgod"]
+[ext_resource type="Texture2D" uid="uid://bglhay2tqyn5v" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0003.png" id="24_kaa1c"]
+[ext_resource type="Texture2D" uid="uid://cwj6m2bv3xbwp" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0004.png" id="25_acnyj"]
+[ext_resource type="Texture2D" uid="uid://dxnsok5iwp53f" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0005.png" id="26_ulhox"]
+[ext_resource type="Texture2D" uid="uid://c3mhp7cokamdp" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0006.png" id="27_5h2au"]
+[ext_resource type="Texture2D" uid="uid://c5bxpmym7qa8q" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0007.png" id="28_6ftvd"]
+[ext_resource type="Texture2D" uid="uid://n4xv0k0othic" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0008.png" id="29_ah3pu"]
+[ext_resource type="Texture2D" uid="uid://cs2cqajkiungp" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0009.png" id="30_dm44e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mypjb"]
 animations = [{
@@ -46,9 +66,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_sndxk")
 }],
-"loop": 2,
+"loop": 0,
 "name": &"Barking",
-"speed": 12.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -60,26 +80,106 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_12smy")
 }, {
-"duration": 0.5,
+"duration": 1.5,
 "texture": ExtResource("4_wkkfr")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("5_2qe13")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_7gnfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_57bt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5v6pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gm7kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_liyc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_xea84")
+}],
+"loop": 0,
+"name": &"Sitting",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_vdj1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fhgod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_kaa1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_acnyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ulhox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5h2au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_6ftvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ah3pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_dm44e")
+}],
+"loop": 1,
+"name": &"SittingIdle",
+"speed": 7.0
 }]
 
-[node name="Dog" type="Node2D" unique_id=1198311174]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mypjb"]
+streams_count = 3
+stream_0/stream = ExtResource("16_ws021")
+stream_1/stream = ExtResource("17_qrdop")
+stream_2/stream = ExtResource("18_f5fcd")
+
+[sub_resource type="Resource" id="Resource_mypjb"]
+script = ExtResource("20_k54ei")
+Specials = Array[StringName]([&"Barking"])
+metadata/_custom_type_script = "uid://bg3jgifqlao7q"
+
+[node name="Dog" type="Node2D" unique_id=1198311174 node_paths=PackedStringArray("animation_component")]
 script = ExtResource("1_0swk1")
+animation_component = NodePath("CharacterAnimationComponent")
 
 [node name="VisualPivot2D" type="Node2D" parent="." unique_id=1826990535]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1490162423]
+unique_name_in_owner = true
 position = Vector2(0, -15.000001)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_mypjb")
-animation = &"Barking"
-frame = 4
-frame_progress = 0.14516027
+animation = &"SittingIdle"
+
+[node name="tween_barks" type="Timer" parent="." unique_id=505053573]
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1021177383]
+stream = SubResource("AudioStreamRandomizer_mypjb")
+max_distance = 800.0
+
+[node name="CharacterAnimationComponent" type="Node" parent="." unique_id=1710346005 node_paths=PackedStringArray("animated_sprite", "visual_pivot")]
+script = ExtResource("19_f5fcd")
+animation_set = SubResource("Resource_mypjb")
+animated_sprite = NodePath("../VisualPivot2D/AnimatedSprite2D")
+visual_pivot = NodePath("../VisualPivot2D")
+metadata/_custom_type_script = "uid://wfrb6s4dedul"

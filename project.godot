@@ -45,7 +45,7 @@ enabled=PackedStringArray("res://addons/at-icons/plugin.cfg", "res://addons/dial
 [file_customization]
 
 folder_colors={
-"res://Assets/props_plants_buildings_etc/environment/32x32 Dungeon Pack/": "green"
+"res://Assets/PropsPlantsBuildingsEtc/environment/32x32 Dungeon Pack/": "green"
 }
 
 [input]
@@ -88,7 +88,7 @@ Interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/Dialogue Ballons/Dialogues/Intro_Dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/Dialogue Ballons/Dialogues/Intro_Dialogue.dialogue", "res://Dialogues/Dialogue Ballons/Dialogues/first_time_anvil.dialogue")
 
 [layer_names]
 

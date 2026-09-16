@@ -14,7 +14,9 @@ enum MovementMode {
 }
 
 enum HitboxProfile {
-	
+	SLASH,
+	PIERCE,
+	CROUCH
 }
 
 @export var animation_name: StringName

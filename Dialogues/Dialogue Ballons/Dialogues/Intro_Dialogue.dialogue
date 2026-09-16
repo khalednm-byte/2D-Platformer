@@ -50,5 +50,5 @@ Father: Let her know you're home safely.
 	Father: fuck off
 
 $> Father.has_met_player = true
-$> ProgressManager.complete((Anvil.TALK_TO_FATHER))
+$> ProgressManager.complete((Anvil.progress_requirement.required_flags[0]))
 => END

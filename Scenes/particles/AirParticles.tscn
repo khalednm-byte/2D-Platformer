@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://tdunfdfkrpry"]
 
-[ext_resource type="Texture2D" uid="uid://ctffycwi2hnpo" path="res://Assets/props_plants_buildings_etc/ELR-WindyLeafs/ELR_SpringlLeaf1.png" id="1_leaf_1"]
-[ext_resource type="Texture2D" uid="uid://cj2jh1iq27yn8" path="res://Assets/props_plants_buildings_etc/ELR-WindyLeafs/ELR_FallLeaf1.png" id="2_p17j8"]
-[ext_resource type="Texture2D" uid="uid://1sickiusiasr" path="res://Assets/props_plants_buildings_etc/ELR-WindyLeafs/ELR_SpringlLeaf3.png" id="3_leaf_3"]
+[ext_resource type="Texture2D" uid="uid://ctffycwi2hnpo" path="res://Assets/PropsPlantsBuildingsEtc/ELR-WindyLeafs/ELR_SpringlLeaf1.png" id="1_leaf_1"]
+[ext_resource type="Texture2D" uid="uid://cj2jh1iq27yn8" path="res://Assets/PropsPlantsBuildingsEtc/ELR-WindyLeafs/ELR_FallLeaf1.png" id="2_p17j8"]
+[ext_resource type="Texture2D" uid="uid://1sickiusiasr" path="res://Assets/PropsPlantsBuildingsEtc/ELR-WindyLeafs/ELR_SpringlLeaf3.png" id="3_leaf_3"]
 
 [sub_resource type="Gradient" id="Gradient_air_fade"]
 offsets = PackedFloat32Array(0, 0.15, 0.8, 1)

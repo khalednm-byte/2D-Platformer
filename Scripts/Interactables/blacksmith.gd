@@ -1,6 +1,11 @@
 extends Interaction
 
+enum Stance {
+	SITTING, ## character is sitting
+	STANDING ## character is standing
+}
 
+@export var stance: Stance = Stance.STANDING
 @export var interaction_component: InteractableComponent
 @export var animation_component: CharacterAnimationComponent
 @export var dialogue_resource: DialogueResource
@@ -8,7 +13,6 @@ extends Interaction
 @onready var orignal_pivot_scale: float = $VisualPivot.scale.x
 @onready var dialogue_marker: DialogueMarker2D = $VisualPivot/DialogueMarker2D
 
-var is_interacting: bool = false
 var interactor_reference: Node2D = null
 
 # emotions for dialogue
@@ -21,6 +25,8 @@ var talked_before: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if stance == Stance.SITTING:
+		animation_component.animation_set.idle = &"Sitting_Idle"
 	add_to_group("dialogue_blacksmith")
 	interaction_component.interaction_requested.connect(_on_interaction_requested)
 	interaction_component.flip_parent_sprite.connect(_on_flip_parent_sprite)
@@ -28,6 +34,7 @@ func _ready() -> void:
 
 
 func _on_flip_parent_sprite(interactor_position: Vector2) -> void:
+	#if stance == Stance.SITTING: return ## if we ever made the offest.x 0.0 again instead of 1.5 then we bring back this line to action.
 	if interactor_position.x > global_position.x:
 		$VisualPivot.scale.x =  orignal_pivot_scale
 	elif interactor_position.x < global_position.x:
@@ -40,33 +47,37 @@ func _on_interaction_requested(player: Player) -> void:
 	if is_interacting: return
 	is_interacting = true
 	interactor_reference = player # store a temporary reference of the interactor
-	update_interactor_interacting_state(interactor_reference, is_interacting)
+	update_interactor_interacting_state(interactor_reference)
 	DialogueManager.show_dialogue_balloon(dialogue_resource, "start")
-	request_dialogue_animation()
+	play_dialogue_animation()
 
 
-func request_dialogue_animation() -> void:
-	if not animation_component.try_play_special(&"Fixing_Glasses"):
-		push_error("No Dialogue animation was found in ", self.name)
-		return
+func play_dialogue_animation() -> void:
+	if stance == Stance.STANDING:
+		if not animation_component.try_play_special(&"Fixing_Glasses"):
+			push_error("No Standing Dialogue animation was found in ", self.name)
+			return
+	else:
+		if not animation_component.try_play_special(&"Sitting_Dialogue"):
+			push_error("No Sitting Dialogue animation was found in ", self.name)
+			return
 
-func update_interactor_interacting_state(interactor: Node2D, interacting: bool) -> void:
+func update_interactor_interacting_state(interactor: Node2D) -> void:
 	if interactor is Player:
-		interactor.switch_is_interacting(interacting)
-	if not interacting:
+		interactor.switch_is_interacting(is_interacting)
+	if not is_interacting:
 		interactor_reference = null
 
 func _on_dialogue_ended(_dialogue: DialogueResource) -> void:
-	print("dialogue ended")
 	is_interacting = false
-	# the line hidden presents a coupling problem, maybe find another approach? | update-> (Commented out now after presented solution)
+	# the hidden line presents a coupling problem, maybe find another approach? | update-> (Commented out now after presented solution)
 	#interaction_component.nearby_player.switch_is_interacting(is_interacting)
 	# -----------------------------------------------------------------------
 	
 	# New possible solution
-	update_interactor_interacting_state(interactor_reference, is_interacting)
+	update_interactor_interacting_state(interactor_reference)
 	# -----------------------------------------------------------------------
-	$VisualPivot/AnimatedSprite2D.play(&"Idle")
+
 
 func _physics_process(_delta: float) -> void:
 	animation_component.update_locomotion(false, true, false, 0.0)

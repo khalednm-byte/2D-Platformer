@@ -2,9 +2,9 @@
 extends Area2D
 class_name InteractableComponent
 
-signal interaction_requested(interactor: Node, active: bool)
+signal interaction_requested(interactor: Node)
 signal flip_parent_sprite(facing_direction: Vector2)
-signal body_exited_while_interacting(goto_interactable_position: Vector2)
+
 
 @export var parent: Interaction
 @export var display_name: String = "Object"
@@ -19,7 +19,6 @@ signal body_exited_while_interacting(goto_interactable_position: Vector2)
 		_refresh_availability()
 
 var nearby_player: Player
-var currently_interacting: bool
 
 func _ready() -> void:
 	if parent != null:
@@ -43,10 +42,6 @@ func _on_body_exited(body: Node2D) -> void:
 		return
 	
 	nearby_player.unregister_interactable(self)
-	if currently_interacting:
-		body_exited_while_interacting.emit(global_position)
-		currently_interacting = false
-		nearby_player.switch_is_interacting(currently_interacting)
 	nearby_player = null
 
 func sprite_flip_logic_check(interactor: Node) -> void:
