@@ -1,6 +1,11 @@
 ~ start
 if not Anvil.can_interact():
+	if Anvil.checked_once:
+		Qaswar: I'd better go find him. => END
+	
 	Qaswar: hmm..
 	Qaswar: I wonder where my father is at.
-	Qaswar: He rarely leaves the anvil at this time! => END
+	$> Anvil.checked_once = true
+	Qaswar: He rarely leaves the anvil at this time! 
+
 => END

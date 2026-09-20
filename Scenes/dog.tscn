@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://c5bxpmym7qa8q" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0007.png" id="28_6ftvd"]
 [ext_resource type="Texture2D" uid="uid://n4xv0k0othic" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0008.png" id="29_ah3pu"]
 [ext_resource type="Texture2D" uid="uid://cs2cqajkiungp" path="res://Assets/characters by pixellab/Dog/IdleSitting/SittingIdle_0009.png" id="30_dm44e"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="36_57bt0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mypjb"]
 animations = [{
@@ -144,6 +145,29 @@ animations = [{
 "loop": 1,
 "name": &"SittingIdle",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_xea84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_liyc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gm7kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5v6pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_57bt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7gnfr")
+}],
+"loop": 0,
+"name": &"Stand",
+"speed": 5.0
 }]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mypjb"]
@@ -168,7 +192,9 @@ unique_name_in_owner = true
 position = Vector2(0, -15.000001)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_mypjb")
-animation = &"SittingIdle"
+animation = &"Stand"
+frame = 5
+frame_progress = 1.0
 
 [node name="tween_barks" type="Timer" parent="." unique_id=505053573]
 autostart = true
@@ -183,3 +209,9 @@ animation_set = SubResource("Resource_mypjb")
 animated_sprite = NodePath("../VisualPivot2D/AnimatedSprite2D")
 visual_pivot = NodePath("../VisualPivot2D")
 metadata/_custom_type_script = "uid://wfrb6s4dedul"
+
+[node name="DialogueStateContext" type="Node" parent="." unique_id=1702813907 node_paths=PackedStringArray("target")]
+script = ExtResource("36_57bt0")
+alias = "Rage"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"

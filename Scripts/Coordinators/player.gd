@@ -231,7 +231,7 @@ func request_jump() -> bool:
 	return true
 
 ## Main Function
-func request_interaction() -> bool:
+func request_interaction(delta: float) -> bool:
 	_update_current_interactable()
 	
 	if not is_instance_valid(current_interactable):
@@ -372,14 +372,14 @@ func _use_crouch_collision() -> void:
 	crouch_collision.set_deferred("disabled", false)
 	hurtbox_component.use_crouch_profile() # Sync
 
-func resolve_action_input(intent: CharacterIntent) -> bool:
+func resolve_action_input(intent: CharacterIntent, delta: float) -> bool:
 	if intent.attack_pressed and request_attack():
 		return true
 	
 	if animation_component.is_locked():
 		return false
 	
-	if intent.interact_pressed and request_interaction():
+	if intent.interact_pressed and request_interaction(delta):
 		return true
 	
 	if intent.slide_pressed and request_slide():
@@ -409,9 +409,9 @@ func switch_is_interacting(interacting: bool) -> void:
 	jump_buffer_time_remaining = 0.0
 
 func _physics_process(delta: float) -> void:
-	#print("Interacting: ", is_interacting)
-	var intent := input_source.get_intent()
+	#print("velocity: ", velocity.x)
 	
+	var intent := input_source.get_intent()
 	input_lock_time_remaining = maxf(input_lock_time_remaining - delta, 0.0)
 	
 	jump_buffer_time_remaining = maxf(jump_buffer_time_remaining - delta, 0.0)
@@ -427,7 +427,7 @@ func _physics_process(delta: float) -> void:
 	
 	var action_started := false
 	if input_lock_time_remaining <= 0.0:
-		action_started = resolve_action_input(intent)
+		action_started = resolve_action_input(intent, delta)
 	
 	if not action_started and not animation_component.is_locked() and _can_change_facing_direction() and not is_interacting:
 		update_facing_direction(intent.movement_direction)

@@ -1,4 +1,6 @@
+@icon("res://addons/at-icons/node2d/dog.svg")
 extends Node2D
+class_name Dog
 
 @export var animation_component: CharacterAnimationComponent
 
@@ -17,6 +19,22 @@ func _on_tween_barks_timer_timeout() -> void:
 		push_error("Barking not found in dog.gd.")
 	tween_barks_timer.wait_time = randf_range(2.0, 10.0)
 	tween_barks_timer.start()
+
+func pause_bark() -> void:
+	tween_barks_timer.paused = true
+
+func resume_bark() -> void:
+	tween_barks_timer.paused = false
+
+
+func sit() -> void:
+	if not tween_barks_timer.paused:
+		tween_barks_timer.paused = true
+	if not animation_component.try_play_one_shot(&"Sitting"):
+		push_error(self.name, " Sitting Transition failed")
+		return
+	else:
+		animation_component.animation_set.idle = &"SittingIdle"
 
 func _physics_process(_delta: float) -> void:
 	animation_component.update_locomotion(false, true, false, 0.0)

@@ -8,7 +8,7 @@ signal attack_finished
 signal turn_finished(new_direction: float)
 signal slide_enter_finished
 signal slide_exit_finished
-signal special_finished
+signal one_shot_finished(animation_name: StringName)
 signal animation_frame_changed(animation_name: StringName, frame: int)
 
 @export var animation_set: CharacterAnimationSet
@@ -24,7 +24,7 @@ enum AnimationLock {
 	ATTACK,
 	SLIDE_IN,
 	SLIDE_OUT,
-	SPECIAL
+	ONE_SHOT
 }
 
 
@@ -90,13 +90,28 @@ func try_play_slide_enter() -> bool:
 func try_play_slide_exit() -> bool:
 	return _try_play_locked(AnimationLock.SLIDE_OUT, animation_set.slide_exit)
 
-func try_play_special(animation_name: StringName) -> bool:
-	var animation_index = animation_set.Specials.find(animation_name)
-	if animation_index == -1:
+func try_play_one_shot(animation_name: StringName) -> bool:
+	if animated_sprite.sprite_frames == null:
+		push_error("AnimatedSprite2D has no SpriteFrames resource.")
 		return false
-	return _try_play_locked(AnimationLock.SPECIAL, animation_set.Specials.get(animation_index))
+	
+	if not animated_sprite.sprite_frames.has_animation(animation_name):
+		push_error("Missing animation: %s" % animation_name)
+		return false
+	
+	if animated_sprite.sprite_frames.get_animation_loop(animation_name):
+		push_warning("One-shot animation '%s' is configured to loop." % animation_name)
+		return false
+	
+	return _try_play_locked(AnimationLock.ONE_SHOT, animation_name)
 
-func update_locomotion(is_crouched: bool, is_on_floor: bool, is_sliding: bool,horizontal_velocity: float) -> void:
+func try_play_special(animation_name: StringName) -> bool:
+	if animation_name not in animation_set.Specials:
+		return false
+	
+	return try_play_one_shot(animation_name)
+
+func update_locomotion(is_crouched: bool, is_on_floor: bool, is_sliding: bool, horizontal_velocity: float) -> void:
 	# Do not overwrite one-shot animations.
 	if is_locked():
 		return
@@ -188,5 +203,5 @@ func _on_animation_finished() -> void:
 			
 		AnimationLock.SLIDE_OUT:
 			slide_exit_finished.emit()
-		AnimationLock.SPECIAL:
-			special_finished.emit() # unused for now
+		AnimationLock.ONE_SHOT:
+			one_shot_finished.emit(locked_animation_name)

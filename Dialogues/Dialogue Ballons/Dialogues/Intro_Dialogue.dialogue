@@ -48,7 +48,12 @@ Father: Let her know you're home safely.
 		$> Father.is_happy = false
 	$> Father.is_angry = true
 	Father: fuck off
-
+$> Father._on_flip_parent_sprite(Rage.global_position)
+$> Rage.pause_bark()
+Father: Rage.. [wait=0.5]That's it
+Father: Sit.
+$> Rage.sit()
 $> Father.has_met_player = true
 $> ProgressManager.complete((Anvil.progress_requirement.required_flags[0]))
+Father: [wait=1.5]Good boy.
 => END

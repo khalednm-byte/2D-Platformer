@@ -78,6 +78,5 @@ func _on_dialogue_ended(_dialogue: DialogueResource) -> void:
 	update_interactor_interacting_state(interactor_reference)
 	# -----------------------------------------------------------------------
 
-
 func _physics_process(_delta: float) -> void:
 	animation_component.update_locomotion(false, true, false, 0.0)

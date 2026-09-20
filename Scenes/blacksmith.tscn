@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://5ncagx4tf1lw" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0007.png" id="45_4v043"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mypjb"]
-size = Vector2(74, 57)
+size = Vector2(94, 54.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4f64"]
 animations = [{
@@ -206,10 +206,11 @@ display_name = "Father"
 action_text = "talk to"
 interaction_priority = 5
 allow_sprite_flip = true
+minimum_horizontal_distance = 23.0
 metadata/_custom_type_script = "uid://dhm5ffwdvc0d4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=2084906854]
-position = Vector2(0, -28.5)
+position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_mypjb")
 debug_color = Color(0.23921569, 0.50980395, 1, 0.41960785)
 

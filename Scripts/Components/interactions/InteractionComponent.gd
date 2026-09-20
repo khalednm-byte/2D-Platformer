@@ -11,6 +11,8 @@ signal flip_parent_sprite(facing_direction: Vector2)
 @export var action_text: String = "Interact"
 @export var interaction_priority: int = 0
 @export var allow_sprite_flip: bool = false ## Allow flipping the parent sprit to match the interactor facing direction
+## Minimum horizontal separation in world pixels. Set on NPCs to keep dialogue clear; 0 disables it.
+@export_range(0.0, 200.0, 1.0, "or_greater") var minimum_horizontal_distance: float = 0.0
 @export var enabled: bool = true:
 	set(value):
 		if enabled == value:
@@ -53,6 +55,14 @@ func interact(interactor: Node) -> bool:
 	if not enabled:
 		return false
 	
+	if interactor is Player and minimum_horizontal_distance > 0.0:
+		# Use the NPC origin, since the interaction area may be offset from it.
+		var origin := global_position
+		if is_instance_valid(parent):
+			origin = parent.global_position
+		if absf(interactor.global_position.x - origin.x) < minimum_horizontal_distance:
+			return false
+
 	sprite_flip_logic_check(interactor)
 	
 	interaction_requested.emit(interactor)
