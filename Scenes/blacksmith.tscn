@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cash2o50osu3y" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0003.png" id="41_a876t"]
 [ext_resource type="Texture2D" uid="uid://bx6ldoiqrbyvt" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0004.png" id="42_2ul82"]
 [ext_resource type="Texture2D" uid="uid://cmjbsywtlqq34" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0005.png" id="43_5jxc8"]
+[ext_resource type="Script" uid="uid://chxhmbsuanqmp" path="res://Scripts/Components/ProgressRequirementComponent.gd" id="43_e2fdj"]
 [ext_resource type="Texture2D" uid="uid://db57bryjfc58h" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0006.png" id="44_ig2yl"]
 [ext_resource type="Texture2D" uid="uid://5ncagx4tf1lw" path="res://Assets/characters by pixellab/Oldman/sitting/idle_2/sitting_noglasses_0007.png" id="45_4v043"]
 
@@ -193,11 +194,12 @@ script = ExtResource("18_e6bcr")
 Specials = Array[StringName]([&"Fixing_Glasses", &"Sitting_Dialogue"])
 metadata/_custom_type_script = "uid://bg3jgifqlao7q"
 
-[node name="Blacksmith" type="Node2D" unique_id=1494163714 node_paths=PackedStringArray("interaction_component", "animation_component")]
+[node name="Blacksmith" type="Node2D" unique_id=1494163714 node_paths=PackedStringArray("interaction_component", "animation_component", "progress_requirement")]
 script = ExtResource("1_6adbh")
 interaction_component = NodePath("InteractableComponent")
 animation_component = NodePath("CharacterAnimationComponent")
 dialogue_resource = ExtResource("2_0wq2w")
+progress_requirement = NodePath("ProgressRequirementComponent")
 
 [node name="InteractableComponent" type="Area2D" parent="." unique_id=2081387977 node_paths=PackedStringArray("parent")]
 script = ExtResource("10_f8ast")
@@ -214,16 +216,16 @@ position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_mypjb")
 debug_color = Color(0.23921569, 0.50980395, 1, 0.41960785)
 
-[node name="VisualPivot" type="Node2D" parent="." unique_id=201254205]
+[node name="VisualPivot2D" type="Node2D" parent="." unique_id=201254205]
 scale = Vector2(0.8, 0.8)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot" unique_id=1936546560]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1936546560]
 position = Vector2(2.3841858e-07, -27.5)
 sprite_frames = SubResource("SpriteFrames_d4f64")
-animation = &"Sitting_Stomp"
+animation = &"Idle"
 offset = Vector2(1.5, 0)
 
-[node name="DialogueMarker2D" type="Marker2D" parent="VisualPivot" unique_id=171758224]
+[node name="DialogueMarker2D" type="Marker2D" parent="VisualPivot2D" unique_id=171758224]
 position = Vector2(-28.749996, -46.25)
 scale = Vector2(1.2499999, 1.2499999)
 script = ExtResource("16_0wq2w")
@@ -233,8 +235,8 @@ metadata/_custom_type_script = "uid://cxge1wx70prau"
 [node name="CharacterAnimationComponent" type="Node" parent="." unique_id=1303986383 node_paths=PackedStringArray("animated_sprite", "visual_pivot")]
 script = ExtResource("17_oo3ny")
 animation_set = SubResource("Resource_mypjb")
-animated_sprite = NodePath("../VisualPivot/AnimatedSprite2D")
-visual_pivot = NodePath("../VisualPivot")
+animated_sprite = NodePath("../VisualPivot2D/AnimatedSprite2D")
+visual_pivot = NodePath("../VisualPivot2D")
 metadata/_custom_type_script = "uid://wfrb6s4dedul"
 
 [node name="DialogueStateContext" type="Node" parent="." unique_id=1238227484 node_paths=PackedStringArray("target")]
@@ -242,3 +244,8 @@ script = ExtResource("19_e6bcr")
 alias = "Father"
 target = NodePath("..")
 metadata/_custom_type_script = "uid://cd3222nx3y3k5"
+
+[node name="ProgressRequirementComponent" type="Node" parent="." unique_id=600723291]
+script = ExtResource("43_e2fdj")
+required_flags = Array[StringName]([&"HAS_MET_PLAYER"])
+metadata/_custom_type_script = "uid://chxhmbsuanqmp"

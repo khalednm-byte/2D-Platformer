@@ -13,16 +13,12 @@ enum MovementMode {
 	FREE
 }
 
-enum HitboxProfile {
-	SLASH,
-	PIERCE,
-	CROUCH
-}
 
 @export var animation_name: StringName
 @export var damage: float = 10.0
 @export var knockback_force: float = 100.0
 @export var attack_type: AttackType = AttackType.SLASH
+@export var hitbox_profile: HitboxProfile
 
 @export_category("Active Frames")
 @export var active_windows: Array[Vector2i] = []

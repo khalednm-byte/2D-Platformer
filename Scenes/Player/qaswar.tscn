@@ -1,0 +1,435 @@
+[gd_scene format=3 uid="uid://bdj5idnje1sg7"]
+
+[ext_resource type="Texture2D" uid="uid://ct1fiiuq8bw8a" path="res://Assets/characters by pixellab/Qaswar/Jumping/Jumping_0007.png" id="1_jyx4i"]
+[ext_resource type="Script" uid="uid://w24fik0gh3mi" path="res://Scripts/Coordinators/player.gd" id="1_xbjm8"]
+[ext_resource type="Texture2D" uid="uid://ci33xlfqii0ew" path="res://Assets/characters by pixellab/Qaswar/Jumping/Jumping_0008.png" id="2_7f7sg"]
+[ext_resource type="Texture2D" uid="uid://damgx8id63nr7" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0001.png" id="3_jxcg5"]
+[ext_resource type="Texture2D" uid="uid://s2tpyfd7ujbr" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0002.png" id="4_g2238"]
+[ext_resource type="Texture2D" uid="uid://dfmcdbmkjkijx" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0003.png" id="5_5m3sa"]
+[ext_resource type="Texture2D" uid="uid://b0hwxbbe2lisy" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0004.png" id="6_qweah"]
+[ext_resource type="Texture2D" uid="uid://c04is8ql26ps2" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0005.png" id="7_c681a"]
+[ext_resource type="Texture2D" uid="uid://kuklm8ho11bp" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0006.png" id="8_3on6s"]
+[ext_resource type="Texture2D" uid="uid://dpgsgl5gv3o0r" path="res://Assets/characters by pixellab/Qaswar/Idle/Idle_0007.png" id="9_plyvo"]
+[ext_resource type="Texture2D" uid="uid://vqbigshta58g" path="res://Assets/characters by pixellab/Qaswar/Jumping/Jumping_0004.png" id="10_7po4p"]
+[ext_resource type="Texture2D" uid="uid://358xqh1drwkn" path="res://Assets/characters by pixellab/Qaswar/Jumping/Jumping_0005.png" id="11_kf1no"]
+[ext_resource type="Texture2D" uid="uid://drdu4qp1yufp5" path="res://Assets/characters by pixellab/Qaswar/Jumping/Jumping_0006.png" id="12_7slf3"]
+[ext_resource type="Texture2D" uid="uid://iuoiwgi1jk5j" path="res://Assets/characters by pixellab/Qaswar/Jumping/Jumping_0009.png" id="13_0ly6u"]
+[ext_resource type="Texture2D" uid="uid://vc3qbfa18wfk" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0001.png" id="15_svyk1"]
+[ext_resource type="Texture2D" uid="uid://cvfg78rsbouiu" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0002.png" id="16_anvg8"]
+[ext_resource type="Texture2D" uid="uid://foyw6xnvgqbq" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0003.png" id="17_with8"]
+[ext_resource type="Texture2D" uid="uid://w4271s651l3v" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0004.png" id="18_6e4xh"]
+[ext_resource type="Texture2D" uid="uid://cywkjm2tr33s5" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0005.png" id="19_lw4wr"]
+[ext_resource type="Texture2D" uid="uid://dasaqcqo2ejcl" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0006.png" id="20_6kjtd"]
+[ext_resource type="Script" uid="uid://dwdjijsm4378l" path="res://Scripts/Components/Movement/SimpleMovement_Component.gd" id="20_raa8b"]
+[ext_resource type="Script" uid="uid://cxge1wx70prau" path="res://addons/dialogue_manager/nodes/marker/dialogue_marker_2d.gd" id="21_7f7sg"]
+[ext_resource type="Texture2D" uid="uid://5spxdty68m77" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0007.png" id="21_a22jy"]
+[ext_resource type="Script" uid="uid://wfrb6s4dedul" path="res://Scripts/Components/CharacterAnimationComponent.gd" id="21_xbjm8"]
+[ext_resource type="Texture2D" uid="uid://cwk0j1rd3dpwy" path="res://Assets/characters by pixellab/Qaswar/Running/Running_0008.png" id="22_jgn8k"]
+[ext_resource type="Script" uid="uid://bg3jgifqlao7q" path="res://Scripts/Recources/AnimationSets.gd" id="22_mq2il"]
+[ext_resource type="Texture2D" uid="uid://c0komumpotybs" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0001.png" id="23_0lsgl"]
+[ext_resource type="Texture2D" uid="uid://bby5uicjmfg7p" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0001.png" id="23_meb0e"]
+[ext_resource type="Texture2D" uid="uid://b3kk6bkp31ok0" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0002.png" id="24_cxad0"]
+[ext_resource type="Texture2D" uid="uid://bmhqch6seyj06" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0002.png" id="24_j4wi6"]
+[ext_resource type="Texture2D" uid="uid://b2rd2r57i24ml" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0003.png" id="25_1q86h"]
+[ext_resource type="Script" uid="uid://yeeli2bbmb5n" path="res://Scripts/Components/InputSources/PlayerInputSource.gd" id="25_jxcg5"]
+[ext_resource type="Texture2D" uid="uid://chsn3cwdt3p84" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0003.png" id="25_xmpw7"]
+[ext_resource type="Texture2D" uid="uid://blwxdlealuhi4" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0004.png" id="26_b26ut"]
+[ext_resource type="Texture2D" uid="uid://nsjooak25j2e" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0004.png" id="26_fu4ss"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="26_g2238"]
+[ext_resource type="Script" uid="uid://n3qiv85d0ygh" path="res://Scripts/Components/HealthComponent.gd" id="27_7jh6t"]
+[ext_resource type="Texture2D" uid="uid://4g5op5q5nfor" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0005.png" id="27_usvnn"]
+[ext_resource type="Texture2D" uid="uid://da0pud7oydt6w" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0005.png" id="27_xec20"]
+[ext_resource type="Texture2D" uid="uid://eh5v273a6w3q" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0006.png" id="28_b772u"]
+[ext_resource type="Script" uid="uid://dwgwfnad2qx3g" path="res://Scripts/Components/CombatComponent.gd" id="28_cxwjj"]
+[ext_resource type="Texture2D" uid="uid://b813rg55l34on" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0006.png" id="28_ehy8a"]
+[ext_resource type="Texture2D" uid="uid://bvigeod6ldltk" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0007.png" id="29_3ki8b"]
+[ext_resource type="Script" uid="uid://tq3lioir71b6" path="res://Scripts/Recources/AttackData.gd" id="29_c31eb"]
+[ext_resource type="Texture2D" uid="uid://c5tvfllotwxi5" path="res://Assets/characters by pixellab/Qaswar/SlowingDown/TurnAround_0007.png" id="29_meb0e"]
+[ext_resource type="Texture2D" uid="uid://dipst852gmwlm" path="res://Assets/characters by pixellab/Qaswar/RunningAlt1/RunningAlt1_0008.png" id="30_5k47w"]
+[ext_resource type="Script" uid="uid://d3hfg1k3sojj1" path="res://Scripts/Components/HitBoxComponent.gd" id="30_exbkn"]
+[ext_resource type="Resource" uid="uid://dwjcobaf1up2n" path="res://Recources/HitBoxProfiles/Slash.tres" id="30_tyi0n"]
+[ext_resource type="Resource" uid="uid://5bdgrmlj5l6a" path="res://Recources/HitBoxProfiles/Pierce.tres" id="31_7oh0x"]
+[ext_resource type="Script" uid="uid://c2u4h2l6w5g8x" path="res://Scripts/Components/HurtBoxComponent.gd" id="31_f1dum"]
+[ext_resource type="Resource" uid="uid://cfbi67faci0v7" path="res://Recources/HitBoxProfiles/Crouch.tres" id="32_svyk1"]
+[ext_resource type="Script" uid="uid://cb7tyevipo3ru" path="res://Scripts/Controllers/ActionController.gd" id="ActionController_script"]
+[ext_resource type="Script" uid="uid://8hpgywe5k0p6" path="res://Scripts/Components/interactions/InteractorComponent.gd" id="Interactor_script"]
+[ext_resource type="Script" uid="uid://0rjsou5eiub1" path="res://Scripts/Controllers/PlatformerCamera.gd" id="PlatformerCamera_script"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mypjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jyx4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7f7sg")
+}],
+"loop": 1,
+"name": &"Airborne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jxcg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g2238")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5m3sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qweah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c681a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3on6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_plyvo")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7po4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kf1no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7slf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jyx4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7f7sg")
+}],
+"loop": 0,
+"name": &"Jumping",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7f7sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0ly6u")
+}],
+"loop": 0,
+"name": &"Landing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_svyk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_anvg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_with8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6e4xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lw4wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6kjtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_a22jy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jgn8k")
+}],
+"loop": 1,
+"name": &"Running",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_meb0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_cxad0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_1q86h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_b26ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_usvnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ehy8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_3ki8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_5k47w")
+}],
+"loop": 1,
+"name": &"RunningAlt1",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_0lsgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_j4wi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xmpw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fu4ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_xec20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_b772u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_meb0e")
+}],
+"loop": 0,
+"name": &"SlowingDown",
+"speed": 20.0
+}]
+
+[sub_resource type="Resource" id="Resource_mypjb"]
+script = ExtResource("22_mq2il")
+run = &"RunningAlt1"
+jump = &"Jumping"
+moving_jump = &"Airborne"
+turn = &"SlowingDown"
+metadata/_custom_type_script = "uid://bg3jgifqlao7q"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dskxk"]
+radius = 11.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rppv4"]
+radius = 11.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyi0n"]
+
+[sub_resource type="Resource" id="Resource_sbwqj"]
+script = ExtResource("29_c31eb")
+animation_name = &"Attack"
+hitbox_profile = ExtResource("30_tyi0n")
+active_windows = Array[Vector2i]([Vector2i(1, 2)])
+movement_mode = 1
+movement_multiplier = 0.5
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="Resource" id="Resource_xwi16"]
+script = ExtResource("29_c31eb")
+animation_name = &"Attack2"
+attack_type = 1
+hitbox_profile = ExtResource("31_7oh0x")
+active_windows = Array[Vector2i]([Vector2i(2, 3)])
+movement_mode = 1
+movement_multiplier = 0.5
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="Resource" id="Resource_qpa8y"]
+script = ExtResource("29_c31eb")
+animation_name = &"Attack"
+hitbox_profile = ExtResource("30_tyi0n")
+active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_mode = 1
+movement_multiplier = 0.5
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="Resource" id="Resource_sweqm"]
+script = ExtResource("29_c31eb")
+animation_name = &"AttackNoMovement"
+hitbox_profile = ExtResource("30_tyi0n")
+active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_multiplier = 0.0
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="Resource" id="Resource_ph33w"]
+script = ExtResource("29_c31eb")
+animation_name = &"Attack2NoMovement"
+attack_type = 1
+hitbox_profile = ExtResource("31_7oh0x")
+active_windows = Array[Vector2i]([Vector2i(2, 3)])
+movement_multiplier = 0.0
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="Resource" id="Resource_7ldla"]
+script = ExtResource("29_c31eb")
+animation_name = &"Attack"
+hitbox_profile = ExtResource("30_tyi0n")
+active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_multiplier = 0.0
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[sub_resource type="Resource" id="Resource_7oh0x"]
+script = ExtResource("29_c31eb")
+animation_name = &"CrouchAttack"
+knockback_force = 50.0
+attack_type = 2
+hitbox_profile = ExtResource("32_svyk1")
+active_windows = Array[Vector2i]([Vector2i(1, 1)])
+movement_multiplier = 0.25
+metadata/_custom_type_script = "uid://tq3lioir71b6"
+
+[node name="Qaswar" type="CharacterBody2D" unique_id=1774236708 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component", "action_controller", "interactor_component")]
+collision_mask = 11
+script = ExtResource("1_xbjm8")
+input_source = NodePath("PlayerInputSource")
+movement_component = NodePath("SimpleMovementComponent")
+animation_component = NodePath("CharacterAnimationComponent")
+combat_component = NodePath("CombatComponent")
+hurtbox_component = NodePath("HurtBoxComponent")
+action_controller = NodePath("ActionController")
+interactor_component = NodePath("InteractorComponent")
+
+[node name="VisualPivot2D" type="Node2D" parent="." unique_id=1690191533]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1055782089]
+position = Vector2(0, -20)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_mypjb")
+animation = &"SlowingDown"
+frame = 6
+frame_progress = 1.0
+
+[node name="DialogueMarker2D" type="Marker2D" parent="VisualPivot2D" unique_id=495315223]
+position = Vector2(-17, -37)
+script = ExtResource("21_7f7sg")
+character_name = "Qaswar"
+metadata/_custom_type_script = "uid://cxge1wx70prau"
+
+[node name="SimpleMovementComponent" type="Node" parent="." unique_id=902883141 node_paths=PackedStringArray("body")]
+script = ExtResource("20_raa8b")
+body = NodePath("..")
+movement_speed = 230.0
+metadata/_custom_type_script = "uid://dwdjijsm4378l"
+
+[node name="CharacterAnimationComponent" type="Node" parent="." unique_id=1280521330 node_paths=PackedStringArray("animated_sprite", "visual_pivot")]
+script = ExtResource("21_xbjm8")
+animation_set = SubResource("Resource_mypjb")
+animated_sprite = NodePath("../VisualPivot2D/AnimatedSprite2D")
+visual_pivot = NodePath("../VisualPivot2D")
+metadata/_custom_type_script = "uid://wfrb6s4dedul"
+
+[node name="PlayerInputSource" type="Node" parent="." unique_id=1503977600]
+script = ExtResource("25_jxcg5")
+metadata/_custom_type_script = "uid://yeeli2bbmb5n"
+
+[node name="DialogueStateContext" type="Node" parent="." unique_id=1062631876 node_paths=PackedStringArray("target")]
+script = ExtResource("26_g2238")
+alias = "Qaswar"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"
+
+[node name="StandingCollision" type="CollisionShape2D" parent="." unique_id=58317557]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_dskxk")
+
+[node name="LowCollision" type="CollisionPolygon2D" parent="." unique_id=778084562]
+visible = false
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
+disabled = true
+
+[node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=1587147507]
+visible = false
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_rppv4")
+disabled = true
+
+[node name="HeadClearanceCheck" type="ShapeCast2D" parent="." unique_id=1224563014]
+visible = false
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_tyi0n")
+target_position = Vector2(0, -11)
+collision_mask = 267
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1206738497]
+script = ExtResource("27_7jh6t")
+
+[node name="CombatComponent" type="Node2D" parent="." unique_id=513599536 node_paths=PackedStringArray("animation_component", "hitbox_component")]
+script = ExtResource("28_cxwjj")
+animation_component = NodePath("../CharacterAnimationComponent")
+hitbox_component = NodePath("../HitBoxComponent")
+moving_combo = Array[ExtResource("29_c31eb")]([SubResource("Resource_sbwqj"), SubResource("Resource_xwi16"), SubResource("Resource_qpa8y")])
+stationary_combo = Array[ExtResource("29_c31eb")]([SubResource("Resource_sweqm"), SubResource("Resource_ph33w"), SubResource("Resource_7ldla")])
+crouch_attack = SubResource("Resource_7oh0x")
+
+[node name="HitBoxComponent" type="Area2D" parent="." unique_id=1491649915 node_paths=PackedStringArray("hitbox_collision")]
+script = ExtResource("30_exbkn")
+hitbox_collision = NodePath("CollisionPolygon")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=587120769]
+polygon = PackedVector2Array(6, -39, 31, -30, 34, -25, 31, -19, 19, -16, 15, -10, 23, -3, 41, -8, 49, -15, 49, -23, 38, -36)
+disabled = true
+
+[node name="HurtBoxComponent" type="Area2D" parent="." unique_id=1987189055 node_paths=PackedStringArray("health_component", "damage_owner", "standing_collision", "crouch_collision", "low_collision")]
+visible = false
+script = ExtResource("31_f1dum")
+health_component = NodePath("../HealthComponent")
+damage_owner = NodePath("..")
+standing_collision = NodePath("StandingCollision")
+crouch_collision = NodePath("CrouchCollision")
+low_collision = NodePath("LowCollision")
+
+[node name="StandingCollision" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=1235835615]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_dskxk")
+
+[node name="LowCollision" type="CollisionPolygon2D" parent="HurtBoxComponent" unique_id=1049753974]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
+disabled = true
+
+[node name="CrouchCollision" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=1341350756]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_rppv4")
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1140593113]
+zoom = Vector2(4, 4)
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1380
+limit_bottom = 650
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("PlatformerCamera_script")
+look_ahead_time = 1.0
+look_ahead_response = 2.0
+recenter_delay = 10.0
+
+[node name="ActionController" type="Node" parent="." unique_id=758562909 node_paths=PackedStringArray("combat_component", "animation_component")]
+script = ExtResource("ActionController_script")
+combat_component = NodePath("../CombatComponent")
+animation_component = NodePath("../CharacterAnimationComponent")
+disable_crouch = true
+disable_slide = true
+disable_attack = true
+
+[node name="InteractorComponent" type="Node" parent="." unique_id=841115598 node_paths=PackedStringArray("actor")]
+script = ExtResource("Interactor_script")
+actor = NodePath("..")
+
+[connection signal="died" from="HealthComponent" to="ActionController" method="die"]

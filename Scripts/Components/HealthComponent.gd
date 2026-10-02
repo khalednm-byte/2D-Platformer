@@ -33,12 +33,12 @@ func damage(damage_taken: AttackInfo) -> void:
 		var absorbed_damage := minf(current_shield, remaining_damage)
 		
 		current_shield -= absorbed_damage
+		shield_changed.emit(current_shield, max_shield)
 		remaining_damage -= absorbed_damage
 		
 		if current_shield == 0.0:
 			shield_broken.emit()
-		else:
-			shield_changed.emit(current_shield, max_shield)
+	
 	
 	
 	if remaining_damage > 0.0:

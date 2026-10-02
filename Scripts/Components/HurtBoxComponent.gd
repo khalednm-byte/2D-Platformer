@@ -1,3 +1,4 @@
+@icon("res://addons/at-icons/node2d/heart_broken.svg")
 extends Area2D
 class_name HurtBoxComponent
 

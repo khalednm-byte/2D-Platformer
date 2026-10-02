@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HitboxProfile" format=3 uid="uid://cfbi67faci0v7"]
+
+[ext_resource type="Script" uid="uid://d4ex6n6se23xl" path="res://Scripts/Recources/HitBoxProfile.gd" id="1_0v5uk"]
+
+[resource]
+script = ExtResource("1_0v5uk")
+points = PackedVector2Array(11, -7, 24, -15, 11, -23, 27, -23, 39, -19, 44, -14, 42, -9, 26, -4)
+metadata/_custom_type_script = "uid://d4ex6n6se23xl"

@@ -5,7 +5,7 @@ class_name SimpleMovementComponent
 @export var body: CharacterBody2D
 
 @export_category("Horizontal Movement")
-@export var movement_speed: float = 300.0
+@export var movement_speed: float = 300
 @export var crouch_speed: float = 150.0
 @export var ground_acceleration: float = 1500.0
 @export var ground_deceleration: float = 2000.0
@@ -42,8 +42,9 @@ func set_crouched(is_crouched: bool) -> void:
 func set_crouching(is_crouching: bool) -> void:
 	crouching = is_crouching
 
-func update_horizontal_movement(direction: float, delta: float, is_interacting: bool) -> void:
-	if is_interacting: 
+
+func update_horizontal_movement(direction: float, delta: float, movement_blocked: bool) -> void:
+	if movement_blocked:
 		body.velocity.x = 0.0
 		return
 	var normalized_direction := clampf(direction, -1.0, 1.0)

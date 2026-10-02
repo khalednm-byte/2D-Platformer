@@ -35,14 +35,20 @@
 [ext_resource type="Script" uid="uid://dwdjijsm4378l" path="res://Scripts/Components/Movement/SimpleMovement_Component.gd" id="32_wohnl"]
 [ext_resource type="Script" uid="uid://n3qiv85d0ygh" path="res://Scripts/Components/HealthComponent.gd" id="33_nv4vc"]
 [ext_resource type="Script" uid="uid://wfrb6s4dedul" path="res://Scripts/Components/CharacterAnimationComponent.gd" id="34_8gxox"]
-[ext_resource type="Script" uid="uid://yeeli2bbmb5n" path="res://Scripts/Components/Input Sources/PlayerInputSource.gd" id="35_11gg7"]
+[ext_resource type="Script" uid="uid://yeeli2bbmb5n" path="res://Scripts/Components/InputSources/PlayerInputSource.gd" id="35_11gg7"]
 [ext_resource type="Script" uid="uid://cxge1wx70prau" path="res://addons/dialogue_manager/nodes/marker/dialogue_marker_2d.gd" id="36_ph33w"]
 [ext_resource type="Script" uid="uid://dwgwfnad2qx3g" path="res://Scripts/Components/CombatComponent.gd" id="37_11gg7"]
 [ext_resource type="Script" uid="uid://tq3lioir71b6" path="res://Scripts/Recources/AttackData.gd" id="38_qpa8y"]
+[ext_resource type="Resource" uid="uid://dwjcobaf1up2n" path="res://Recources/HitBoxProfiles/Slash.tres" id="39_gyc8k"]
 [ext_resource type="Script" uid="uid://d3hfg1k3sojj1" path="res://Scripts/Components/HitBoxComponent.gd" id="39_sbwqj"]
+[ext_resource type="Resource" uid="uid://5bdgrmlj5l6a" path="res://Recources/HitBoxProfiles/Pierce.tres" id="40_qflxp"]
 [ext_resource type="Script" uid="uid://c2u4h2l6w5g8x" path="res://Scripts/Components/HurtBoxComponent.gd" id="40_xwi16"]
+[ext_resource type="Resource" uid="uid://cfbi67faci0v7" path="res://Recources/HitBoxProfiles/Crouch.tres" id="41_0pk7v"]
 [ext_resource type="PackedScene" uid="uid://5i8nwlo5ax30" path="res://temp/shader_scene/canvas_layer.tscn" id="41_sweqm"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="43_7ldla"]
+[ext_resource type="Script" uid="uid://cb7tyevipo3ru" path="res://Scripts/Controllers/ActionController.gd" id="ActionController_script"]
+[ext_resource type="Script" uid="uid://8hpgywe5k0p6" path="res://Scripts/Components/interactions/InteractorComponent.gd" id="Interactor_script"]
+[ext_resource type="Script" uid="uid://0rjsou5eiub1" path="res://Scripts/Controllers/PlatformerCamera.gd" id="PlatformerCamera_script"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clpr6"]
 height = 36.0
@@ -1245,6 +1251,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_sbwqj"]
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack"
+hitbox_profile = ExtResource("39_gyc8k")
 active_windows = Array[Vector2i]([Vector2i(1, 2)])
 movement_mode = 1
 movement_multiplier = 0.5
@@ -1254,6 +1261,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack2"
 attack_type = 1
+hitbox_profile = ExtResource("40_qflxp")
 active_windows = Array[Vector2i]([Vector2i(2, 3)])
 movement_mode = 1
 movement_multiplier = 0.5
@@ -1262,6 +1270,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 [sub_resource type="Resource" id="Resource_qpa8y"]
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack"
+hitbox_profile = ExtResource("39_gyc8k")
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_mode = 1
 movement_multiplier = 0.5
@@ -1270,6 +1279,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 [sub_resource type="Resource" id="Resource_sweqm"]
 script = ExtResource("38_qpa8y")
 animation_name = &"AttackNoMovement"
+hitbox_profile = ExtResource("39_gyc8k")
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_multiplier = 0.0
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1278,6 +1288,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack2NoMovement"
 attack_type = 1
+hitbox_profile = ExtResource("40_qflxp")
 active_windows = Array[Vector2i]([Vector2i(2, 3)])
 movement_multiplier = 0.0
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1285,6 +1296,7 @@ metadata/_custom_type_script = "uid://tq3lioir71b6"
 [sub_resource type="Resource" id="Resource_7ldla"]
 script = ExtResource("38_qpa8y")
 animation_name = &"Attack"
+hitbox_profile = ExtResource("39_gyc8k")
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_multiplier = 0.0
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1294,6 +1306,7 @@ script = ExtResource("38_qpa8y")
 animation_name = &"CrouchAttack"
 knockback_force = 50.0
 attack_type = 2
+hitbox_profile = ExtResource("41_0pk7v")
 active_windows = Array[Vector2i]([Vector2i(1, 1)])
 movement_multiplier = 0.25
 metadata/_custom_type_script = "uid://tq3lioir71b6"
@@ -1305,7 +1318,7 @@ height = 36.0
 radius = 11.0
 height = 28.0
 
-[node name="Player" type="CharacterBody2D" unique_id=604404683 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component")]
+[node name="Qaswar" type="CharacterBody2D" unique_id=604404683 node_paths=PackedStringArray("input_source", "movement_component", "animation_component", "combat_component", "hurtbox_component", "action_controller", "interactor_component")]
 collision_mask = 11
 script = ExtResource("1_xuaoq")
 input_source = NodePath("InputSource")
@@ -1313,24 +1326,28 @@ movement_component = NodePath("SimpleMovementComponent")
 animation_component = NodePath("AnimationComponent")
 combat_component = NodePath("CombatComponent")
 hurtbox_component = NodePath("HurtBoxComponent")
+action_controller = NodePath("ActionController")
+interactor_component = NodePath("InteractorComponent")
 jump_buffer_duration = 0.2
 
 [node name="StandingCollision" type="CollisionShape2D" parent="." unique_id=1113752472]
-visible = false
 position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_clpr6")
 
 [node name="LowCollision" type="CollisionPolygon2D" parent="." unique_id=2035048171]
+visible = false
 position = Vector2(-1, 0)
 polygon = PackedVector2Array(-9, 0, -9, -18, 12, -18, 16, -12, 23, -7, 27, -4, 27, 0)
 disabled = true
 
 [node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=1153845567]
+visible = false
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_ypfnu")
 disabled = true
 
 [node name="HeadClearanceCheck" type="ShapeCast2D" parent="." unique_id=1253466748]
+visible = false
 position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_ypfnu")
 target_position = Vector2(0, -11)
@@ -1353,8 +1370,7 @@ script = ExtResource("35_11gg7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisualPivot2D" unique_id=1534660958]
 position = Vector2(5, -40)
 sprite_frames = SubResource("SpriteFrames_350sb")
-animation = &"Run"
-frame = 9
+animation = &"Idle"
 
 [node name="DialogueMarker2D" type="Marker2D" parent="VisualPivot2D" unique_id=137849123]
 position = Vector2(-19, -34)
@@ -1371,6 +1387,7 @@ limit_right = 1280
 limit_bottom = 650
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
+script = ExtResource("PlatformerCamera_script")
 
 [node name="CombatComponent" type="Node2D" parent="." unique_id=926367403 node_paths=PackedStringArray("animation_component", "hitbox_component")]
 script = ExtResource("37_11gg7")
@@ -1380,21 +1397,13 @@ moving_combo = Array[ExtResource("38_qpa8y")]([SubResource("Resource_sbwqj"), Su
 stationary_combo = Array[ExtResource("38_qpa8y")]([SubResource("Resource_sweqm"), SubResource("Resource_ph33w"), SubResource("Resource_7ldla")])
 crouch_attack = SubResource("Resource_c7dlu")
 
-[node name="HitBoxComponent" type="Area2D" parent="." unique_id=502909852 node_paths=PackedStringArray("slash_collision_polygon", "piercing_collision_polygon", "crouch_collision_polygon")]
+[node name="HitBoxComponent" type="Area2D" parent="." unique_id=502909852 node_paths=PackedStringArray("hitbox_collision")]
 script = ExtResource("39_sbwqj")
-slash_collision_polygon = NodePath("SlashCollisionPolygon")
-piercing_collision_polygon = NodePath("PiercingCollisionPolygon")
-crouch_collision_polygon = NodePath("CrouchCollisionPolygon")
+hitbox_collision = NodePath("CollisionPolygon")
 
-[node name="SlashCollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1190416129]
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1190416129]
 polygon = PackedVector2Array(6, -39, 31, -30, 34, -25, 31, -19, 19, -16, 15, -10, 23, -3, 41, -8, 49, -15, 49, -23, 38, -36)
 disabled = true
-
-[node name="PiercingCollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=1127145306]
-polygon = PackedVector2Array(14, -39, 36, -30, 40, -24, 35, -18, 21, -9, 27, -3, 42, -5, 55, -14, 54, -23, 44, -36)
-
-[node name="CrouchCollisionPolygon" type="CollisionPolygon2D" parent="HitBoxComponent" unique_id=178678938]
-polygon = PackedVector2Array(11, -7, 24, -15, 11, -23, 27, -23, 39, -19, 44, -14, 42, -9, 26, -4)
 
 [node name="HurtBoxComponent" type="Area2D" parent="." unique_id=1845226512 node_paths=PackedStringArray("health_component", "damage_owner", "standing_collision", "crouch_collision", "low_collision")]
 visible = false
@@ -1435,3 +1444,14 @@ script = ExtResource("43_7ldla")
 alias = "Qaswar"
 target = NodePath("..")
 metadata/_custom_type_script = "uid://cd3222nx3y3k5"
+
+[node name="ActionController" type="Node" parent="." unique_id=864557744 node_paths=PackedStringArray("combat_component", "animation_component")]
+script = ExtResource("ActionController_script")
+combat_component = NodePath("../CombatComponent")
+animation_component = NodePath("../AnimationComponent")
+
+[node name="InteractorComponent" type="Node" parent="." unique_id=436698064 node_paths=PackedStringArray("actor")]
+script = ExtResource("Interactor_script")
+actor = NodePath("..")
+
+[connection signal="died" from="HealthComponent" to="ActionController" method="die"]

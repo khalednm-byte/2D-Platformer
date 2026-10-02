@@ -1,59 +1,61 @@
 ~ start
-if Father.has_met_player:
-	if Father.is_angry: 
-		 Father: Go to your mother.. before I lose my mind.
+if ProgressManager.has_completed(&"HAS_MET_PLAYER"):
+	if Father.is_angry:
+		Father: We've said enough for now. Go and see your mother.
 		=> END
-	elif Father.is_happy: 
-		Qaswar: I love you father.
-		Father: I love you too son.
+	elif Father.is_happy:
+		Father: Still here?
+		Qaswar: It's good to see you, Father.
+		Father: And you, son. Now let your mother have a turn.
 		=> END
 	else:
-		Father: your mother is waiting.
+		Father: Your mother's inside. Don't keep her waiting.
 		=> END
 else:
 	Father: Qaswar!
 
-
 Qaswar: Father.
 
-Father: There you are. What kept you so long?
+Father: There you are. Where have you been?
 
-Qaswar: I'm sorry. I ran into some friends on the way back.
-Qaswar: We started talking, and... I lost track of time.
+Qaswar: I met some friends on the way home.
+Qaswar: I meant to stay a moment, but we got talking.
 
-Father: I see.
-Father: But you know your mother must be worried sick by now.
+Father: A long moment.
 
-Qaswar: I know, Father. I'm sorry.
+Qaswar: ...I'm sorry.
 
-Father: These are uneasy times, Qaswar.
-Father: You cannot afford to wander about without telling us where you are.
-Father: Next time, be more careful. Do you understand?
+Father: Your mother has been to the door three times.
+Father: I was about to come looking for you.
 
-Qaswar: Yes, Father.
+Qaswar: You didn't need to. I know the road.
 
-Father: Good.
-Father: Now go. Your mother has been waiting for you.
-Father: Let her know you're home safely.
+Father: I know you do.
+Father: It's who else might be on it that worries me.
 
-- I will father
-	if Father.is_angry: 
-		Father: being disrespectful earlier didn't help, did it?
-		$> Father.is_angry = false
+Qaswar: Nothing happened.
+
+Father: I'm glad.
+Father: Next time, send word if you're going to be late.
+
+- I will. I didn't mean to worry you.
+	$> Father.is_angry = false
 	$> Father.is_happy = true
-	Father: bye
-- Sike
-	if Father.is_happy: 
-		Father: what is wrong with you?
-		$> Father.is_happy = false
+	Father: I know, son.
+	Father: Go on. Let your mother see you're home.
+- You can't keep worrying every time I leave.
+	$> Father.is_happy = false
 	$> Father.is_angry = true
-	Father: fuck off
+	Father: And you can't expect us to know you're safe when you tell us nothing.
+	Qaswar: Father, I—
+	Father: Go inside, Qaswar. Your mother's waiting.
+
 $> Father._on_flip_parent_sprite(Rage.global_position)
 $> Rage.pause_bark()
-Father: Rage.. [wait=0.5]That's it
+Father: All right, Rage.[wait=0.5] He's home.
 Father: Sit.
 $> Rage.sit()
-$> Father.has_met_player = true
-$> ProgressManager.complete((Anvil.progress_requirement.required_flags[0]))
-Father: [wait=1.5]Good boy.
+$> ProgressManager.complete(&"HAS_MET_PLAYER")
+$> ProgressManager.complete(&"TALK_TO_FATHER")
+Father: [wait=1.0]Good boy.
 => END

@@ -8,8 +8,6 @@ class_name AnvilInteractable
 
 var interactor_reference: Node2D = null
 
-## dialogue state
-var checked_once: bool = false
 
 func _ready() -> void:
 	interaction_component.interaction_requested.connect(_on_interaction_requested)
@@ -53,7 +51,9 @@ func _on_ui_closed() -> void:
 	is_interacting = false
 	update_interactor_interacting_state(interactor_reference)
 
-func _on_dialogue_ended(_dialogue: DialogueResource) -> void:
+func _on_dialogue_ended(dialogue: DialogueResource) -> void:
+	if not is_interacting or dialogue != dialogue_resource:
+		return
 	is_interacting = false
 	update_interactor_interacting_state(interactor_reference)
 

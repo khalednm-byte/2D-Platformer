@@ -20,13 +20,13 @@ signal flip_parent_sprite(facing_direction: Vector2)
 		enabled = value
 		_refresh_availability()
 
-var nearby_player: Player
+var _nearby_interactors: Array[InteractorComponent] = []
 
 func _ready() -> void:
-	if parent != null:
+	if parent == null:
+		push_error("Interaction component has no parent assigned on ", self.name, " at ", get_parent().name, ". Trying to find it's parent now..")
 		parent = get_parent() as Interaction
-	else:
-		push_error("Interaction component has no parent assigned on ", self.name, " at ", get_parent().name)
+	
 	if not has_node("CollisionShape2D"):
 		push_error("Interaction Component on: ", get_parent().name, " has no collision bounds as child.")
 		return
@@ -34,45 +34,56 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		nearby_player = body
-		if enabled:
-			nearby_player.register_interactable(self)
+	for child in body.get_children():
+		if child is InteractorComponent and child.actor == body:
+			if child not in _nearby_interactors:
+				_nearby_interactors.append(child)
+			if enabled:
+				child.register_interactable(self)
 
 func _on_body_exited(body: Node2D) -> void:
-	if body != nearby_player:
-		return
-	
-	nearby_player.unregister_interactable(self)
-	nearby_player = null
+	for index in range(_nearby_interactors.size() - 1, -1, -1):
+		var interactor := _nearby_interactors[index]
+		if not is_instance_valid(interactor):
+			_nearby_interactors.remove_at(index)
+		elif interactor.actor == body:
+			interactor.unregister_interactable(self)
+			_nearby_interactors.remove_at(index)
+
+func _exit_tree() -> void:
+	for interactor in _nearby_interactors:
+		if is_instance_valid(interactor):
+			interactor.unregister_interactable(self)
+	_nearby_interactors.clear()
 
 func sprite_flip_logic_check(interactor: Node) -> void:
 	if allow_sprite_flip:
-		if interactor is Player:
+		if interactor is Node2D:
 			flip_parent_sprite.emit(interactor.global_position)
 
 func interact(interactor: Node) -> bool:
 	if not enabled:
 		return false
 	
-	if interactor is Player and minimum_horizontal_distance > 0.0:
+	if interactor is Node2D and minimum_horizontal_distance > 0.0:
 		# Use the NPC origin, since the interaction area may be offset from it.
 		var origin := global_position
 		if is_instance_valid(parent):
 			origin = parent.global_position
 		if absf(interactor.global_position.x - origin.x) < minimum_horizontal_distance:
 			return false
-
+	
 	sprite_flip_logic_check(interactor)
 	
 	interaction_requested.emit(interactor)
 	return true
 
 func _refresh_availability() -> void:
-	if not is_instance_valid(nearby_player):
-		return
-	
-	if enabled:
-		nearby_player.register_interactable(self)
-	else:
-		nearby_player.unregister_interactable(self)
+	for index in range(_nearby_interactors.size() - 1, -1, -1):
+		var interactor := _nearby_interactors[index]
+		if not is_instance_valid(interactor):
+			_nearby_interactors.remove_at(index)
+		elif enabled:
+			interactor.register_interactable(self)
+		else:
+			interactor.unregister_interactable(self)

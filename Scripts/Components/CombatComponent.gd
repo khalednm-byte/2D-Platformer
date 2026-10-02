@@ -1,3 +1,4 @@
+@icon("res://addons/at-icons/node/swords.svg")
 extends Node
 class_name CombatComponent
 
@@ -133,6 +134,16 @@ func request_attack(facing_direction: float, is_moving: bool, is_crouched: bool)
 func is_busy_attacking() -> bool:
 	return is_attacking
 
+func cancel_attack() -> void:
+	_deactivate_hitbox()
+	attack_queued = false
+	queued_is_moving = false
+	internal_combo_index = 0
+	current_attack = null
+	current_attack_is_crouched = false
+	is_attacking = false
+	animation_component.cancel_attack_animation()
+
 func _activate_hitbox() -> void:
 	var attack_info := AttackInfo.new()
 	
@@ -141,8 +152,10 @@ func _activate_hitbox() -> void:
 	attack_info.attack_location = attacker.global_position
 	attack_info.attack_direction = Vector2(current_facing_direction, 0.0)
 	
-	hitbox_component.activate(attack_info)
-	hitbox_active = true
+	
+	if hitbox_component.activate(attack_info):
+		hitbox_active = true
+
 
 func _is_active_frame(frame: int) -> bool:
 	for window in current_attack.active_windows:
@@ -170,6 +183,8 @@ func _deactivate_hitbox() -> void:
 	hitbox_active = false
 
 func _on_attack_finished() -> void:
+	if not is_attacking:
+		return
 	if hitbox_active:
 		_deactivate_hitbox()
 	

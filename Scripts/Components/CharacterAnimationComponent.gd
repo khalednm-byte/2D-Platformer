@@ -71,6 +71,8 @@ func _try_play_locked(lock_type: AnimationLock, animation_name: StringName) -> b
 func try_play_turn(from_direction: float, to_direction: float) -> bool:
 	pending_turn_direction = to_direction
 	set_facing_direction(from_direction)
+	if not animated_sprite.sprite_frames.has_animation(animation_set.turn):
+		return false
 	return _try_play_locked(AnimationLock.TURN, animation_set.turn)
 
 func try_play_crouch_enter() -> bool:
@@ -171,6 +173,16 @@ func reset_animation_lock() -> void:
 	animation_lock = AnimationLock.NONE
 	locked_animation_name = &""
 
+## Cancellation never emits completion signals or advances a combo.
+func cancel_current_animation() -> void:
+	reset_animation_lock()
+	if animated_sprite != null:
+		animated_sprite.stop()
+
+func cancel_attack_animation() -> void:
+	if animation_lock == AnimationLock.ATTACK:
+		cancel_current_animation()
+
 func _on_frame_changed() -> void:
 	animation_frame_changed.emit(animated_sprite.animation, animated_sprite.frame)
 
@@ -182,6 +194,7 @@ func _on_animation_finished() -> void:
 		return
 	
 	var finished_lock := animation_lock
+	var finished_lock_name := locked_animation_name
 	reset_animation_lock()
 	
 	match finished_lock:
@@ -204,4 +217,5 @@ func _on_animation_finished() -> void:
 		AnimationLock.SLIDE_OUT:
 			slide_exit_finished.emit()
 		AnimationLock.ONE_SHOT:
-			one_shot_finished.emit(locked_animation_name)
+			one_shot_finished.emit(finished_lock_name)
+	

@@ -9,9 +9,11 @@ enum Stance {
 @export var interaction_component: InteractableComponent
 @export var animation_component: CharacterAnimationComponent
 @export var dialogue_resource: DialogueResource
+@export var progress_requirement: ProgressRequirementComponent
 
-@onready var orignal_pivot_scale: float = $VisualPivot.scale.x
-@onready var dialogue_marker: DialogueMarker2D = $VisualPivot/DialogueMarker2D
+
+@onready var orignal_pivot_scale: float = $VisualPivot2D.scale.x
+@onready var dialogue_marker: DialogueMarker2D = $VisualPivot2D/DialogueMarker2D
 
 var interactor_reference: Node2D = null
 
@@ -20,7 +22,6 @@ var is_angry: bool = false
 var is_worried: bool = false
 var is_happy: bool = false
 # state
-var has_met_player: bool = false
 var talked_before: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -36,9 +37,9 @@ func _ready() -> void:
 func _on_flip_parent_sprite(interactor_position: Vector2) -> void:
 	#if stance == Stance.SITTING: return ## if we ever made the offest.x 0.0 again instead of 1.5 then we bring back this line to action.
 	if interactor_position.x > global_position.x:
-		$VisualPivot.scale.x =  orignal_pivot_scale
+		$VisualPivot2D.scale.x =  orignal_pivot_scale
 	elif interactor_position.x < global_position.x:
-		$VisualPivot.scale.x =  -orignal_pivot_scale
+		$VisualPivot2D.scale.x =  -orignal_pivot_scale
 
 func can_interact() -> bool:
 	return true # always available for interaction
@@ -68,7 +69,10 @@ func update_interactor_interacting_state(interactor: Node2D) -> void:
 	if not is_interacting:
 		interactor_reference = null
 
-func _on_dialogue_ended(_dialogue: DialogueResource) -> void:
+func _on_dialogue_ended(dialogue: DialogueResource) -> void:
+	if not is_interacting or dialogue != dialogue_resource:
+		return
+	
 	is_interacting = false
 	# the hidden line presents a coupling problem, maybe find another approach? | update-> (Commented out now after presented solution)
 	#interaction_component.nearby_player.switch_is_interacting(is_interacting)

@@ -25,15 +25,15 @@ texture = ExtResource("1_fexgj")
 
 [node name="ProgressRequirementComponent" type="Node" parent="." unique_id=738330561]
 script = ExtResource("3_y3y6x")
-required_flags = Array[StringName]([&"Talk_to_father"])
+required_flags = Array[StringName]([&"TALK_TO_FATHER"])
 metadata/_custom_type_script = "uid://chxhmbsuanqmp"
 
 [node name="InteractionComponent" type="Area2D" parent="." unique_id=383580043 node_paths=PackedStringArray("parent")]
 collision_layer = 32
 script = ExtResource("4_8xwwp")
 parent = NodePath("..")
-display_name = "Anvil"
-action_text = "Use"
+display_name = "Forging yard"
+action_text = "Check"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" unique_id=456059781]
 position = Vector2(0, -50)

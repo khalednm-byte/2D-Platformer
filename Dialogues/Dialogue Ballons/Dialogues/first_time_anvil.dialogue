@@ -1,11 +1,12 @@
 ~ start
 if not Anvil.can_interact():
-	if Anvil.checked_once:
-		Qaswar: I'd better go find him. => END
+	if ProgressManager.has_completed(&"CHECKED_ONCE"):
+		Qaswar: I'd better find Father before he comes looking for me. => END
 	
-	Qaswar: hmm..
-	Qaswar: I wonder where my father is at.
-	$> Anvil.checked_once = true
-	Qaswar: He rarely leaves the anvil at this time! 
+	Qaswar: Father?
+	Qaswar: Strange. He's usually still at the anvil.
+	$> ProgressManager.complete(&"CHECKED_ONCE")
+	Qaswar: ...It's later than I thought.
+	Qaswar: *Sigh*[wait=1.0] Perhaps I should have come straight home.
 
 => END
